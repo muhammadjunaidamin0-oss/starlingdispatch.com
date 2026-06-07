@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 130" width="520" height="130">
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F5B83D"/>
+      <stop offset="100%" style="stop-color:#D4820A"/>
+    </linearGradient>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0C1B2E"/>
+      <stop offset="100%" style="stop-color:#0A1520"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="520" height="130" fill="url(#bgGrad)" rx="10"/>
+
+  <!-- Subtle border accent -->
+  <rect width="520" height="130" fill="none" stroke="#E89C0A" stroke-width="0.5" rx="10" opacity="0.3"/>
+
+  <!-- Left gold accent bar -->
+  <rect x="0" y="0" width="4" height="130" fill="url(#goldGrad)" rx="2"/>
+
+  <!-- ===== BIRD ICON (centered vertically at y=65) ===== -->
+  <g transform="translate(28, 18) scale(1.1)" filter="url(#glow)">
+    <!-- Upper wing - sweeping back-left -->
+    <path d="M 46 24 L 2 6 L 63 20 Z" fill="url(#goldGrad)"/>
+    <!-- Secondary upper wing layer for depth -->
+    <path d="M 52 22 L 18 10 L 66 19 Z" fill="#F5B83D" opacity="0.5"/>
+    <!-- Main body - diamond/fuselage -->
+    <path d="M 22 29 L 58 20 L 86 29 L 58 38 Z" fill="url(#goldGrad)"/>
+    <!-- Beak -->
+    <path d="M 84 29 L 108 27 L 108 31 Z" fill="#F5B83D"/>
+    <!-- Lower tail fork 1 (longer) -->
+    <path d="M 36 36 L 2 54 L 20 41 Z" fill="url(#goldGrad)"/>
+    <!-- Lower tail fork 2 (shorter, angled differently) -->
+    <path d="M 25 40 L 5 60 L 15 47 Z" fill="#D4820A" opacity="0.85"/>
+    <!-- Wing highlight dot (eye area) -->
+    <circle cx="80" cy="27" r="2.5" fill="#FFFFFF" opacity="0.6"/>
+  </g>
+
+  <!-- ===== WORDMARK ===== -->
+  <!-- STARLING - main brand name -->
+  <text 
+    x="152" y="72"
+    font-family="'Arial Black', 'Impact', sans-serif"
+    font-size="46"
+    font-weight="900"
+    letter-spacing="6"
+    fill="#FFFFFF"
+  >STARLING</text>
+
+  <!-- DISPATCH - descriptor -->
+  <text 
+    x="155" y="98"
+    font-family="'Arial', sans-serif"
+    font-size="16"
+    font-weight="300"
+    letter-spacing="14"
+    fill="#E89C0A"
+  >DISPATCH</text>
+
+  <!-- Thin divider line between icon and text -->
+  <line x1="140" y1="30" x2="140" y2="100" stroke="#E89C0A" stroke-width="0.75" opacity="0.4"/>
+
+  <!-- Small tagline -->
+  <text 
+    x="154" y="116"
+    font-family="'Arial', sans-serif"
+    font-size="9"
+    font-weight="400"
+    letter-spacing="3"
+    fill="#6B8CAE"
+    opacity="0.8"
+  >STARLINGDISPATCH.COM</text>
+</svg>

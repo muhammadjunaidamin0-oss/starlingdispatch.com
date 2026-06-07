@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 130" width="520" height="130">
+  <defs>
+    <linearGradient id="goldGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E89C0A"/>
+      <stop offset="100%" style="stop-color:#C07808"/>
+    </linearGradient>
+  </defs>
+
+  <!-- White Background -->
+  <rect width="520" height="130" fill="#F8F9FB" rx="10"/>
+  <rect width="520" height="130" fill="none" stroke="#E0E4EA" stroke-width="1" rx="10"/>
+
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="4" height="130" fill="url(#goldGrad2)" rx="2"/>
+
+  <!-- ===== BIRD ICON ===== -->
+  <g transform="translate(28, 18) scale(1.1)">
+    <path d="M 46 24 L 2 6 L 63 20 Z" fill="url(#goldGrad2)"/>
+    <path d="M 52 22 L 18 10 L 66 19 Z" fill="#F5B83D" opacity="0.4"/>
+    <path d="M 22 29 L 58 20 L 86 29 L 58 38 Z" fill="url(#goldGrad2)"/>
+    <path d="M 84 29 L 108 27 L 108 31 Z" fill="#E89C0A"/>
+    <path d="M 36 36 L 2 54 L 20 41 Z" fill="url(#goldGrad2)"/>
+    <path d="M 25 40 L 5 60 L 15 47 Z" fill="#C07808" opacity="0.85"/>
+    <circle cx="80" cy="27" r="2.5" fill="#FFFFFF" opacity="0.8"/>
+  </g>
+
+  <!-- Divider -->
+  <line x1="140" y1="30" x2="140" y2="100" stroke="#CBD5E0" stroke-width="1"/>
+
+  <!-- STARLING -->
+  <text 
+    x="152" y="72"
+    font-family="'Arial Black', 'Impact', sans-serif"
+    font-size="46"
+    font-weight="900"
+    letter-spacing="6"
+    fill="#0C1B2E"
+  >STARLING</text>
+
+  <!-- DISPATCH -->
+  <text 
+    x="155" y="98"
+    font-family="'Arial', sans-serif"
+    font-size="16"
+    font-weight="400"
+    letter-spacing="14"
+    fill="#E89C0A"
+  >DISPATCH</text>
+
+  <!-- Tagline -->
+  <text 
+    x="154" y="116"
+    font-family="'Arial', sans-serif"
+    font-size="9"
+    font-weight="400"
+    letter-spacing="3"
+    fill="#94A3B8"
+  >STARLINGDISPATCH.COM</text>
+</svg>

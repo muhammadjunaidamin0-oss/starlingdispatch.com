@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1584 396" width="1584" height="396">
+  <defs>
+    <linearGradient id="bannerBg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#050F1E"/>
+      <stop offset="45%" style="stop-color:#0C1B2E"/>
+      <stop offset="100%" style="stop-color:#071018"/>
+    </linearGradient>
+    <linearGradient id="goldLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#E89C0A" stop-opacity="0"/>
+      <stop offset="20%" style="stop-color:#E89C0A"/>
+      <stop offset="80%" style="stop-color:#E89C0A"/>
+      <stop offset="100%" style="stop-color:#E89C0A" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="birdG" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FBBF24"/>
+      <stop offset="100%" style="stop-color:#D97706"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#E89C0A" stop-opacity="0.15"/>
+      <stop offset="100%" style="stop-color:#E89C0A" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="birdShadow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Main background -->
+  <rect width="1584" height="396" fill="url(#bannerBg)"/>
+
+  <!-- Subtle radial glow center-left -->
+  <ellipse cx="500" cy="198" rx="500" ry="300" fill="url(#glow)"/>
+
+  <!-- Geometric road/route lines (subtle) - converging perspective lines -->
+  <g opacity="0.06" stroke="#E89C0A" stroke-width="1">
+    <line x1="0" y1="396" x2="900" y2="198"/>
+    <line x1="0" y1="340" x2="900" y2="198"/>
+    <line x1="0" y1="280" x2="900" y2="198"/>
+    <line x1="0" y1="220" x2="900" y2="198"/>
+    <line x1="0" y1="160" x2="900" y2="198"/>
+    <line x1="0" y1="100" x2="900" y2="198"/>
+    <line x1="0" y1="50" x2="900" y2="198"/>
+    <line x1="0" y1="0" x2="900" y2="198"/>
+  </g>
+
+  <!-- Dot grid (subtle texture right side) -->
+  <g opacity="0.05" fill="#E89C0A">
+    <circle cx="1100" cy="80" r="2"/><circle cx="1150" cy="80" r="2"/><circle cx="1200" cy="80" r="2"/><circle cx="1250" cy="80" r="2"/><circle cx="1300" cy="80" r="2"/><circle cx="1350" cy="80" r="2"/><circle cx="1400" cy="80" r="2"/><circle cx="1450" cy="80" r="2"/><circle cx="1500" cy="80" r="2"/><circle cx="1550" cy="80" r="2"/>
+    <circle cx="1100" cy="130" r="2"/><circle cx="1150" cy="130" r="2"/><circle cx="1200" cy="130" r="2"/><circle cx="1250" cy="130" r="2"/><circle cx="1300" cy="130" r="2"/><circle cx="1350" cy="130" r="2"/><circle cx="1400" cy="130" r="2"/><circle cx="1450" cy="130" r="2"/><circle cx="1500" cy="130" r="2"/><circle cx="1550" cy="130" r="2"/>
+    <circle cx="1100" cy="180" r="2"/><circle cx="1150" cy="180" r="2"/><circle cx="1200" cy="180" r="2"/><circle cx="1250" cy="180" r="2"/><circle cx="1300" cy="180" r="2"/><circle cx="1350" cy="180" r="2"/><circle cx="1400" cy="180" r="2"/><circle cx="1450" cy="180" r="2"/><circle cx="1500" cy="180" r="2"/><circle cx="1550" cy="180" r="2"/>
+    <circle cx="1100" cy="230" r="2"/><circle cx="1150" cy="230" r="2"/><circle cx="1200" cy="230" r="2"/><circle cx="1250" cy="230" r="2"/><circle cx="1300" cy="230" r="2"/><circle cx="1350" cy="230" r="2"/><circle cx="1400" cy="230" r="2"/><circle cx="1450" cy="230" r="2"/><circle cx="1500" cy="230" r="2"/><circle cx="1550" cy="230" r="2"/>
+    <circle cx="1100" cy="280" r="2"/><circle cx="1150" cy="280" r="2"/><circle cx="1200" cy="280" r="2"/><circle cx="1250" cy="280" r="2"/><circle cx="1300" cy="280" r="2"/><circle cx="1350" cy="280" r="2"/><circle cx="1400" cy="280" r="2"/><circle cx="1450" cy="280" r="2"/><circle cx="1500" cy="280" r="2"/><circle cx="1550" cy="280" r="2"/>
+    <circle cx="1100" cy="330" r="2"/><circle cx="1150" cy="330" r="2"/><circle cx="1200" cy="330" r="2"/><circle cx="1250" cy="330" r="2"/><circle cx="1300" cy="330" r="2"/><circle cx="1350" cy="330" r="2"/><circle cx="1400" cy="330" r="2"/><circle cx="1450" cy="330" r="2"/><circle cx="1500" cy="330" r="2"/><circle cx="1550" cy="330" r="2"/>
+  </g>
+
+  <!-- Gold top border line -->
+  <rect x="0" y="0" width="1584" height="3" fill="url(#goldLine)"/>
+  <!-- Gold bottom border line -->
+  <rect x="0" y="393" width="1584" height="3" fill="url(#goldLine)"/>
+
+  <!-- ===== LARGE BIRD ICON LEFT ===== -->
+  <g transform="translate(65, 90) scale(3.5)" filter="url(#birdShadow)">
+    <path d="M 46 24 L 2 6 L 63 20 Z" fill="url(#birdG)"/>
+    <path d="M 53 22 L 20 10 L 66 19 Z" fill="#FBBF24" opacity="0.4"/>
+    <path d="M 22 29 L 58 20 L 86 29 L 58 38 Z" fill="url(#birdG)"/>
+    <path d="M 84 29 L 108 27 L 108 31 Z" fill="#FBBF24"/>
+    <path d="M 36 36 L 2 54 L 20 41 Z" fill="url(#birdG)"/>
+    <path d="M 25 40 L 5 60 L 15 47 Z" fill="#C07808" opacity="0.9"/>
+    <circle cx="80" cy="27" r="2.5" fill="#FFFFFF" opacity="0.7"/>
+  </g>
+
+  <!-- Vertical divider -->
+  <line x1="470" y1="60" x2="470" y2="336" stroke="#E89C0A" stroke-width="1" opacity="0.35"/>
+
+  <!-- ===== WORDMARK ===== -->
+  <!-- STARLING -->
+  <text 
+    x="510" y="220"
+    font-family="'Arial Black', 'Impact', sans-serif"
+    font-size="132"
+    font-weight="900"
+    letter-spacing="18"
+    fill="#FFFFFF"
+  >STARLING</text>
+
+  <!-- DISPATCH -->
+  <text 
+    x="516" y="285"
+    font-family="'Arial', sans-serif"
+    font-size="38"
+    font-weight="300"
+    letter-spacing="40"
+    fill="#E89C0A"
+  >DISPATCH</text>
+
+  <!-- Tagline -->
+  <text 
+    x="516" y="325"
+    font-family="'Arial', sans-serif"
+    font-size="18"
+    font-weight="400"
+    letter-spacing="8"
+    fill="#4A6580"
+  >PROFESSIONAL FREIGHT DISPATCHING • USA</text>
+
+  <!-- Horizontal gold accent under STARLING -->
+  <rect x="510" y="232" width="950" height="2" fill="url(#goldLine)" opacity="0.4"/>
+
+  <!-- Website URL - far right bottom -->
+  <text 
+    x="1560" y="370"
+    font-family="'Arial', sans-serif"
+    font-size="16"
+    font-weight="400"
+    letter-spacing="3"
+    fill="#4A6580"
+    text-anchor="end"
+  >STARLINGDISPATCH.COM</text>
+</svg>
