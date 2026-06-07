@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Starling Dispatch — Premium Freight Dispatching Services</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  
+  <style>
+    /* ── BRAND TOKENS & RESET ── */
+    :root {
+      --navy: #0C1B2E;
+      --navy-deep: #050D18;
+      --navy-bg: #08111E;
+      --navy-card: #0F1F33;
+      --gold: #E89C0A;
+      --gold-light: #F5B83D;
+      --gold-dark: #C07808;
+      --white: #FFFFFF;
+      --slate: #4A6580;
+      --gray-mid: #94A3B8;
+      --text-on-dark: #E2E8F0;
+      
+      --font-display: 'Bebas Neue', cursive;
+      --font-body: 'Barlow', sans-serif;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--navy-bg);
+      color: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── REUSABLE COMPONENTS ── */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold-light), var(--gold));
+      color: var(--navy-deep);
+      border: none;
+      box-shadow: 0 4px 15px rgba(232, 156, 10, 0.3);
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(232, 156, 10, 0.4);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--white);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      background: rgba(232, 156, 10, 0.05);
+      transform: translateY(-2px);
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.4em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 48px;
+      letter-spacing: 0.02em;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    /* ── HEADER / NAVIGATION ── */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(5, 13, 24, 0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(232, 156, 10, 0.1);
+    }
+
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 90px;
+    }
+
+    .logo img {
+      height: 48px;
+      width: auto;
+      display: block;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 32px;
+    }
+
+    nav ul a {
+      color: var(--text-on-dark);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      transition: var(--transition);
+    }
+
+    nav ul a:hover {
+      color: var(--gold);
+    }
+
+    /* ── HERO SECTION ── */
+    .hero {
+      position: relative;
+      padding: 200px 0 120px;
+      background: linear-gradient(135deg, #050F1E 0%, #0C1B2E 50%, #071018 100%);
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(232,156,10,0.08) 0%, rgba(232,156,10,0) 70%);
+      top: 10%;
+      left: -100px;
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .hero-content h2 {
+      font-family: var(--font-display);
+      font-size: 72px;
+      line-height: 1.05;
+      letter-spacing: 0.03em;
+      color: var(--white);
+      margin-bottom: 24px;
+    }
+
+    .hero-content p {
+      font-size: 18px;
+      font-weight: 300;
+      color: var(--gray-mid);
+      max-width: 580px;
+      margin-bottom: 40px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+    }
+
+    .hero-banner-wrap {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(232, 156, 10, 0.2);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    }
+
+    .hero-banner-wrap img {
+      width: 100%;
+      display: block;
+    }
+
+    /* ── TRUST METRICS ── */
+    .metrics {
+      background: var(--navy-deep);
+      border-y: 1px solid rgba(255,255,255,0.05);
+      padding: 40px 0;
+    }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+      text-align: center;
+    }
+
+    .metric-card h3 {
+      font-family: var(--font-display);
+      font-size: 40px;
+      color: var(--gold);
+      letter-spacing: 0.05em;
+      line-height: 1;
+    }
+
+    .metric-card p {
+      font-size: 12px;
+      color: var(--gray-mid);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-top: 6px;
+    }
+
+    /* ── SERVICES SECTION ── */
+    .services {
+      padding: 100px 0;
+      background: var(--navy-bg);
+    }
+
+    .services-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .service-card {
+      background: var(--navy-card);
+      border-top: 3px solid var(--slate);
+      border-radius: 8px;
+      padding: 40px 32px;
+      transition: var(--transition);
+    }
+
+    .service-card:hover {
+      border-top-color: var(--gold);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    .service-icon {
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: var(--gold-light);
+    }
+
+    .service-card h3 {
+      font-family: var(--font-display);
+      font-size: 24px;
+      letter-spacing: 0.05em;
+      margin-bottom: 12px;
+    }
+
+    .service-card p {
+      font-size: 14px;
+      color: var(--gray-mid);
+      line-height: 1.6;
+    }
+
+    /* ── THE ADVANTAGE ── */
+    .advantage {
+      padding: 100px 0;
+      background: linear-gradient(180deg, var(--navy-deep) 0%, var(--navy-bg) 100%);
+    }
+
+    .adv-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .adv-image img {
+      width: 100%;
+      max-width: 440px;
+      margin: 0 auto;
+      display: block;
+      filter: drop-shadow(0 15px 30px rgba(232, 156, 10, 0.15));
+    }
+
+    .adv-list {
+      list-style: none;
+      margin-top: 30px;
+    }
+
+    .adv-item {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .adv-item-check {
+      color: var(--gold);
+      font-weight: bold;
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    .adv-item h4 {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+
+    .adv-item p {
+      font-size: 14px;
+      color: var(--gray-mid);
+    }
+
+    /* ── PIPELINE / WORKFLOW ── */
+    .pipeline {
+      padding: 100px 0;
+      background: var(--navy-card);
+      position: relative;
+    }
+
+    .pipe-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      margin-top: 60px;
+    }
+
+    .pipe-step {
+      position: relative;
+      text-align: center;
+    }
+
+    .pipe-num {
+      font-family: var(--font-display);
+      font-size: 64px;
+      color: rgba(232, 156, 10, 0.1);
+      line-height: 1;
+      margin-bottom: -20px;
+    }
+
+    .pipe-step h3 {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .pipe-step p {
+      font-size: 14px;
+      color: var(--gray-mid);
+      padding: 0 20px;
+    }
+
+    /* ── ONBOARDING & CONTACT FORM ── */
+    .contact {
+      padding: 100px 0;
+      background: var(--navy-bg);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 60px;
+      background: var(--navy-deep);
+      border-radius: 16px;
+      border: 1px solid rgba(232, 156, 10, 0.15);
+      overflow: hidden;
+    }
+
+    .contact-info {
+      padding: 60px;
+      background: linear-gradient(135deg, rgba(12, 27, 46, 0.6) 0%, rgba(5, 13, 24, 0.9) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .contact-info p {
+      color: var(--gray-mid);
+      margin-bottom: 32px;
+    }
+
+    .contact-details {
+      margin-top: 10px;
+    }
+
+    .cd-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 22px;
+      font-size: 15px;
+    }
+
+    .cd-row span {
+      color: var(--gold);
+      font-size: 18px;
+    }
+
+    .cd-row a {
+      color: var(--white);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .cd-row a:hover {
+      color: var(--gold-light);
+    }
+
+    .contact-form-wrap {
+      padding: 60px;
+    }
+
+    .form-group-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gray-mid);
+      margin-bottom: 8px;
+    }
+
+    .form-group input, 
+    .form-group select, 
+    .form-group textarea {
+      width: 100%;
+      padding: 14px 16px;
+      background: var(--navy-card);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 14px;
+      transition: var(--transition);
+    }
+
+    .form-group input:focus, 
+    .form-group select:focus, 
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 8px rgba(232, 156, 10, 0.2);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #040A12;
+      padding: 60px 0 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+
+    .footer-brand {
+      font-family: var(--font-display);
+      font-size: 28px;
+      letter-spacing: 0.05em;
+      color: var(--gold);
+    }
+
+    .footer-links a {
+      color: var(--gray-mid);
+      text-decoration: none;
+      font-size: 13px;
+      margin-left: 24px;
+      transition: var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: var(--gold);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding-top: 30px;
+      font-size: 12px;
+      color: var(--slate);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── RESPONSIVE DESIGN ── */
+    @media (max-width: 992px) {
+      .hero-grid, .adv-grid, .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .services-grid, .pipe-grid {
+        grid-template-columns: 1fr;
+      }
+      .metrics-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+      .hero-content h2 {
+        font-size: 56px;
+      }
+      .contact-info, .contact-form-wrap {
+        padding: 40px;
+      }
+      nav, .header-cta {
+        display: none;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-content h2 {
+        font-size: 42px;
+      }
+      .metrics-grid {
+        grid-template-columns: 1fr;
+      }
+      .form-group-row {
+        grid-template-columns: 1fr;
+      }
+      .footer-top {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+      }
+      .footer-links a {
+        margin: 0 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container nav-wrap">
+      <a href="#" class="logo">
+        <img src="starling-dispatch-logo-dark.svg" alt="Starling Dispatch Logo" />
+      </a>
+      <nav>
+        <ul>
+          <li><a href="#about">The Advantage</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#workflow">How It Works</a></li>
+          <li><a href="#onboard">Contact Us</a></li>
+        </ul>
+      </nav>
+      <div class="header-cta">
+        <a href="#onboard" class="btn btn-secondary" style="padding: 10px 20px; font-size: 12px;">Carrier Setup</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <span class="section-label">USA Freight Dispatching Specialists</span>
+        <h2>MAXIMIZE YOUR MILES.<br>MULTIPLY YOUR REVENUE.</h2>
+        <p>Professional freight dispatching services connecting owner-operators and carrier fleets with high-paying loads across the United States. Start with our <strong>14-day free trial</strong>—no credit card required. We handle the paperwork and backend, you rule the asphalt.</p>
+        <div class="hero-actions">
+          <a href="#onboard" class="btn btn-primary">Start 14-Day Free Trial</a>
+          <a href="#services" class="btn btn-secondary">Our Services</a>
+        </div>
+      </div>
+      <div class="hero-banner-wrap">
+        <img src="starling-dispatch-banner.svg" alt="Starling Dispatch Brand Banner" />
+      </div>
+    </div>
+  </section>
+
+  <section class="metrics">
+    <div class="container metrics-grid">
+      <div class="metric-card">
+        <h3 style="color: var(--gold-light);">14 Days</h3>
+        <p>FREE TRIAL · NO CREDIT CARD</p>
+      </div>
+      <div class="metric-card">
+        <h3>Top Tier</h3>
+        <p>Market Load Rates</p>
+      </div>
+      <div class="metric-card">
+        <h3>100%</h3>
+        <p>No Hidden Fees</p>
+      </div>
+      <div class="metric-card">
+        <h3>24/7</h3>
+        <p>Dedicated Support</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="advantage" id="about">
+    <div class="container adv-grid">
+      <div class="adv-image">
+        <img src="starling-dispatch-social-icon.svg" alt="Starling Emblem" />
+      </div>
+      <div class="adv-content">
+        <span class="section-label">The Starling Advantage</span>
+        <h2 class="section-title">WE DON'T JUST BOOK LOADS. WE STRATEGIZE GROWTH.</h2>
+        <p style="color: var(--gray-mid);">We work strictly on a transparent percentage or fixed commission structure. If you aren't making money on a lane, neither are we. Our incentives are perfectly aligned with your dashboard metrics.</p>
+        
+        <ul class="adv-list">
+          <li class="adv-item">
+            <div class="adv-item-check">✓</div>
+            <div>
+              <h4>Smarter Route Optimizations</h4>
+              <p>We triangulate lanes to guarantee minimal deadhead miles and predictable turnarounds.</p>
+            </div>
+          </li>
+          <li class="adv-item">
+            <div class="adv-item-check">✓</div>
+            <div>
+              <h4>A-Grade Broker Verification</h4>
+              <p>Every broker is thoroughly checked for quick-pay credit histories before we confirm your dispatch.</p>
+            </div>
+          </li>
+          <li class="adv-item">
+            <div class="adv-item-check">✓</div>
+            <div>
+              <h4>True Back-Office Liberty</h4>
+              <p>From complex accessorial claims handling to quick factoring setups, we absorb the entire clerical burden.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="container">
+      <div class="services-header">
+        <span class="section-label">Operational Capabilities</span>
+        <h2 class="section-title">Built For Heavy Duty Operations</h2>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">🚚</div>
+          <h3>Load Negotiation</h3>
+          <p>We push back against standard broker rates to extract absolute premium pay-per-mile values using real-time spot market analytics.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📄</div>
+          <h3>Paperwork &amp; Setup</h3>
+          <p>W-9, Certificate of Insurance, Broker Packages, and rate confirmations are rapidly completed accurately on your behalf.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">💳</div>
+          <h3>Billing &amp; Factoring</h3>
+          <p>Immediate processing of invoices down to the factoring company so your cashflow remains uninterrupted week after week.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pipeline" id="workflow">
+    <div class="container">
+      <div class="services-header" style="margin-bottom: 20px;">
+        <span class="section-label">Fast Onboarding Pipeline</span>
+        <h2 class="section-title">From Onboarding To Main Lane In 3 Steps</h2>
+      </div>
+      <div class="pipe-grid">
+        <div class="pipe-step">
+          <div class="pipe-num">01</div>
+          <h3>Submit Authority</h3>
+          <p>Send over your active MC Authority, copy of your Insurance Certificate, and signed W-9 format.</p>
+        </div>
+        <div class="pipe-step">
+          <div class="pipe-num">02</div>
+          <h3>Set Preferences</h3>
+          <p>Define your lane expectations, preferred equipment types, home-time schedules, and target rates.</p>
+        </div>
+        <div class="pipe-step">
+          <div class="pipe-num">03</div>
+          <h3>Roll Out</h3>
+          <p>Our dedicated dispatcher secures your first premium haul immediately. We dispatch, you drive.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="onboard">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <span class="section-label">Connect Instantly</span>
+          <h2 class="section-title" style="font-size: 38px;">Start Your 14-Day Free Trial</h2>
+          <p>Ready to maximize your lanes? Submit the form below to activate your free 14-day trial—no credit card, no commitment. Our onboard manager will contact you immediately to set up your account and secure your first premium haul.</p>
+          
+          <div class="contact-details">
+            <div class="cd-row">
+              <span>✉️</span>
+              <div>
+                <strong style="display:block; font-size:11px; text-transform:uppercase; color:var(--gold); letter-spacing:0.05em;">Email Channels</strong>
+                <a href="mailto:suport@stalingdispatch.com">suport@stalingdispatch.com</a>
+              </div>
+            </div>
+            <div class="cd-row">
+              <span>📷</span>
+              <div>
+                <strong style="display:block; font-size:11px; text-transform:uppercase; color:var(--gold); letter-spacing:0.05em;">Instagram Feed</strong>
+                <a href="https://instagram.com/starling_dispatch" target="_blank">@starling_dispatch</a>
+              </div>
+            </div>
+            <div class="cd-row">
+              <span>🌐</span>
+              <div>
+                <strong style="display:block; font-size:11px; text-transform:uppercase; color:var(--gold); letter-spacing:0.05em;">Digital Headquarters</strong>
+                <a href="#">starlingdispatch.com</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="contact-form-wrap">
+          <form action="#" method="POST" onsubmit="alert('Thank you for connecting with Starling Dispatch! Our onboard manager will contact you immediately.'); return false;">
+            <div class="form-group-row">
+              <div class="form-group">
+                <label for="name">Company Name / Contact</label>
+                <input type="text" id="name" required placeholder="e.g. Starling Logistics" />
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" required placeholder="(555) 555-5555" />
+              </div>
+            </div>
+            
+            <div class="form-group-row">
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" required placeholder="dispatch@yourfirm.com" />
+              </div>
+              <div class="form-group">
+                <label for="truck">Equipment Type</label>
+                <select id="truck">
+                  <option value="dryvan">Dry Van (53')</option>
+                  <option value="reefer">Reefer</option>
+                  <option value="flatbed">Flatbed / Step Deck</option>
+                  <option value="poweronly">Power Only</option>
+                  <option value="box-truck">Box Truck</option>
+                </select>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="message">Lanes or Requirements of Interest</label>
+              <textarea id="message" rows="3" placeholder="Tell us your preferred target rates and regions..."></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Activate My 14-Day Free Trial</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">STARLING DISPATCH</div>
+        <div class="footer-links">
+          <a href="mailto:suport@stalingdispatch.com">Email Us</a>
+          <a href="https://instagram.com/starling_dispatch" target="_blank">Instagram</a>
+          <a href="#about">Advantage</a>
+          <a href="#services">Services</a>
+          <a href="#onboard">Apply</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 STARLINGDISPATCH.COM · ALL RIGHTS RESERVED</div>
+        <div>PROFESSIONAL FREIGHT DISPATCHING SYSTEM V1.0</div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
