@@ -3,9 +3,11 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Starling Dispatch — Premium Freight Dispatching Services</title>
-<meta name="description" content="Professional freight dispatching for owner-operators and carrier fleets across the USA. Higher rates, less paperwork, 24/7 support. Start your 14-day free trial." />
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<title>Starling Dispatch — Premium USA Freight & Truck Dispatching Services</title>
+<meta name="description" content="Professional truck dispatching for owner-operators and carrier fleets across the USA. High-paying loads, DAT & Truckstop top spot rates, 5% transparent commission." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -20,156 +22,450 @@
 <li><a href="index.html" class="active">Home</a></li>
 <li><a href="about.html">About</a></li>
 <li><a href="services.html">Services</a></li>
+<li><a href="pricing.html">Pricing</a></li>
 <li><a href="how-it-works.html">How It Works</a></li>
 <li><a href="faq.html">FAQ</a></li>
 <li><a href="contact.html">Contact</a></li>
 </ul>
 </nav>
 <div class="header-cta">
-<a href="contact.html" class="btn btn-secondary" style="padding: 10px 20px; font-size: 12px;">Carrier Setup</a>
+<a href="contact.html" class="btn btn-primary" style="padding: 10px 22px; font-size: 12px;">Start Free Trial</a>
 </div>
 <button class="nav-toggle" aria-label="Open menu">☰</button>
 </div>
 </header>
 
+<!-- LIVE FREIGHT MARKET TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-header-bar container">
+    <span>📊 SPOT MARKET BENCHMARKS (DAT iQ + TRUCKSTOP LANE AVERAGES)</span>
+    <span style="font-size:11px; opacity:.7;">⚠ ESTIMATES · NOT LIVE DATA</span>
+  </div>
+  <div class="ticker-content">
+    <div class="ticker-item">
+      <span class="ticker-lane">CHICAGO, IL ➔ ATLANTA, GA</span>
+      <span class="ticker-rate">$3.45 / MI</span>
+      <span class="badge-truckstop">TRUCKSTOP TOP</span>
+      <span class="ticker-equip">Dry Van</span>
+    </div>
+    <div class="ticker-item">
+      <span class="ticker-lane">DALLAS, TX ➔ PHOENIX, AZ</span>
+      <span class="ticker-rate">$3.85 / MI</span>
+      <span class="badge-dat">DAT iQ TOP</span>
+      <span class="ticker-equip">Reefer</span>
+    </div>
+    <div class="ticker-item">
+      <span class="ticker-lane">CHARLOTTE, NC ➔ COLUMBUS, OH</span>
+      <span class="ticker-rate">$3.70 / MI</span>
+      <span class="badge-dat">DAT iQ TOP</span>
+      <span class="ticker-equip">Flatbed</span>
+    </div>
+    <div class="ticker-item">
+      <span class="ticker-lane">HARRISBURG, PA ➔ CHICAGO, IL</span>
+      <span class="ticker-rate">$3.92 / MI</span>
+      <span class="badge-truckstop">TRUCKSTOP TOP</span>
+      <span class="ticker-equip">Step Deck</span>
+    </div>
+    <div class="ticker-item">
+      <span class="ticker-lane">LOS ANGELES, CA ➔ DENVER, CO</span>
+      <span class="ticker-rate">$3.35 / MI</span>
+      <span class="badge-dat">DAT iQ TOP</span>
+      <span class="ticker-equip">Power Only</span>
+    </div>
+    <div class="ticker-item">
+      <span class="ticker-lane">KANSAS CITY, MO ➔ MEMPHIS, TN</span>
+      <span class="ticker-rate">$2.80 / MI</span>
+      <span class="badge-truckstop">TRUCKSTOP TOP</span>
+      <span class="ticker-equip">Box Truck</span>
+    </div>
+  </div>
+</div>
+<div style="background:rgba(255,193,7,0.06); border-top:1px solid rgba(255,193,7,0.15); padding:7px 0; text-align:center;">
+  <span style="color:var(--gray-mid); font-size:11.5px; letter-spacing:.03em;">⚠ Rates shown are recent spot-market <strong style="color:var(--off-white);">benchmarks only</strong> — not live quotes. Actual load rates vary daily based on market conditions &amp; lane demand. <a href="pricing.html" style="color:var(--gold-light);">View full disclaimer →</a></span>
+</div>
+
+<!-- HERO SECTION -->
 <section class="hero">
 <div class="container hero-grid">
 <div class="hero-content">
 <span class="section-label">USA Freight Dispatching Specialists</span>
-<h2>MAXIMIZE YOUR MILES.<br>MULTIPLY YOUR REVENUE.</h2>
-<p>Professional freight dispatching services connecting owner-operators and carrier fleets with high-paying loads across the United States. Start with our <strong>14-day free trial</strong>—no credit card required. We handle the paperwork and backend, you rule the asphalt.</p>
+<h1>MAXIMIZE YOUR MILES.<br><span>MULTIPLY YOUR REVENUE.</span></h1>
+<p class="lead">Dedicated freight dispatching connecting owner-operators and carrier fleets with high-paying DAT iQ & Truckstop loads nationwide. Start with our <strong>14-day free trial</strong>—no credit card or binding contract required. We handle rate negotiations and paperwork while you rule the asphalt.</p>
 <div class="hero-actions">
-<a href="contact.html" class="btn btn-primary">Start 14-Day Free Trial</a>
-<a href="services.html" class="btn btn-secondary">Our Services</a>
+<a href="contact.html" class="btn btn-primary">
+  Start 14-Day Free Trial
+  <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/></svg>
+</a>
+<a href="pricing.html" class="btn btn-secondary">View Spot Rates</a>
+</div>
+
+<div class="hero-guarantee">
+  <div class="hero-guarantee-item">
+    <svg width="18" height="18" fill="currentColor" viewBox="0 0 16 16"><path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/></svg>
+    <span>Highest DAT & Truckstop Rates</span>
+  </div>
+  <div class="hero-guarantee-item">
+    <svg width="18" height="18" fill="currentColor" viewBox="0 0 16 16"><path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/></svg>
+    <span>Same-Day Factoring Setup</span>
+  </div>
+  <div class="hero-guarantee-item">
+    <svg width="18" height="18" fill="currentColor" viewBox="0 0 16 16"><path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/></svg>
+    <span>24/7 Dedicated Dispatcher</span>
+  </div>
 </div>
 </div>
-<div class="hero-banner-wrap">
-<img src="starling-dispatch-banner.svg" alt="Starling Dispatch Brand Banner" />
+
+<!-- INTERACTIVE ESTIMATOR CALCULATOR -->
+<div class="hero-calculator">
+  <div class="calc-card">
+    <div class="calc-card-header">
+      <div>
+        <span class="badge">Live DAT + Truckstop Rates</span>
+        <h3>Weekly Revenue Estimator</h3>
+      </div>
+    </div>
+
+    <!-- DAT VS TRUCKSTOP COMPARISON TOGGLE -->
+    <div class="calc-source-toggle">
+      <button class="calc-source-btn active" data-source="highest">Best Rate (DAT/Truckstop)</button>
+      <button class="calc-source-btn" data-source="dat">DAT iQ Rates</button>
+      <button class="calc-source-btn" data-source="truckstop">Truckstop Rates</button>
+    </div>
+    
+    <div class="calc-field">
+      <label for="calc-truck">Equipment Type</label>
+      <select id="calc-truck">
+        <option value="dry-van">Dry Van (53') — Peak $2.92/mi</option>
+        <option value="reefer">Reefer — Peak $3.52/mi</option>
+        <option value="flatbed">Flatbed / Step Deck — Peak $3.70/mi</option>
+        <option value="power-only">Power Only — Peak $2.75/mi</option>
+        <option value="box-truck">Box Truck — Peak $2.50/mi</option>
+      </select>
+    </div>
+
+    <div class="calc-field">
+      <label for="calc-miles">
+        <span>Target Weekly Miles</span>
+        <span id="calc-miles-val" style="color: var(--gold-light); font-weight:700;">2,500 miles</span>
+      </label>
+      <input type="range" id="calc-miles" class="calc-range" min="1000" max="4000" step="100" value="2500" />
+    </div>
+
+    <div class="calc-output-box">
+      <div class="calc-output-sub">Estimated Gross Revenue</div>
+      <div class="calc-output-val" id="calc-gross">$7,300</div>
+      <div class="calc-output-sub" id="calc-net" style="color: var(--gold-light); font-weight:700;">$6,935/wk after 5% dispatch (Truckstop Peak Rate @ $2.92/mi)</div>
+    </div>
+
+    <div style="margin-top: 18px; text-align: center;">
+      <a href="contact.html" class="btn btn-primary" style="width: 100%;">Lock In This Rate — 14 Days Free</a>
+    </div>
+  </div>
 </div>
 </div>
 </section>
 
+<!-- TRUST METRICS -->
 <section class="metrics">
 <div class="container metrics-grid">
 <div class="metric-card">
-<h3 style="color: var(--gold-light);">14 Days</h3>
-<p>FREE TRIAL · NO CREDIT CARD</p>
+<h3>14 DAYS</h3>
+<p>FREE TRIAL · NO COMMITMENT</p>
 </div>
 <div class="metric-card">
-<h3>Top Tier</h3>
-<p>Market Load Rates</p>
+<h3>$3.92/MI</h3>
+<p>HIGHEST SPOT MARKET RPM</p>
 </div>
 <div class="metric-card">
-<h3>100%</h3>
-<p>No Hidden Fees</p>
+<h3>5% FLAT</h3>
+<p>TRANSPARENT DISPATCH FEE</p>
 </div>
 <div class="metric-card">
 <h3>24/7</h3>
-<p>Dedicated Support</p>
+<p>DEDICATED DISPATCH DESK</p>
 </div>
 </div>
 </section>
 
-<section class="advantage" id="about">
-<div class="container adv-grid">
-<div class="adv-image">
-<img src="starling-dispatch-social-icon.svg" alt="Starling Emblem" />
+<!-- EQUIPMENT FLEET COVERAGE SHOWCASE -->
+<section class="fleet-section">
+<div class="container">
+<div class="services-header">
+<span class="section-label">Supported Equipment</span>
+<h2 class="section-title">EQUIPMENT TYPES WE DISPATCH</h2>
+<p style="color: var(--gray-mid);">Whether you run a single dry van or manage a fleet of reefers and flatbeds, our dispatchers extract top rates from DAT iQ and Truckstop.com on every major lane.</p>
 </div>
-<div class="adv-content">
-<span class="section-label">The Starling Advantage</span>
-<h2 class="section-title">WE DON'T JUST BOOK LOADS. WE STRATEGIZE GROWTH.</h2>
-<p style="color: var(--gray-mid);">We work strictly on a transparent percentage or fixed commission structure. If you aren't making money on a lane, neither are we. Our incentives are perfectly aligned with your dashboard metrics.</p>
-<ul class="adv-list">
-<li class="adv-item">
-<div class="adv-item-check">✓</div>
-<div>
-<h4>Smarter Route Optimizations</h4>
-<p>We triangulate lanes to guarantee minimal deadhead miles and predictable turnarounds.</p>
-</div>
-</li>
-<li class="adv-item">
-<div class="adv-item-check">✓</div>
-<div>
-<h4>A-Grade Broker Verification</h4>
-<p>Every broker is thoroughly checked for quick-pay credit histories before we confirm your dispatch.</p>
-</div>
-</li>
-<li class="adv-item">
-<div class="adv-item-check">✓</div>
-<div>
-<h4>True Back-Office Liberty</h4>
-<p>From complex accessorial claims handling to quick factoring setups, we absorb the entire clerical burden.</p>
-</div>
-</li>
-</ul>
-<a href="about.html" class="btn btn-secondary" style="margin-top: 10px;">More About Us</a>
+
+<div class="fleet-grid">
+  <div class="fleet-card">
+    <div class="fleet-icon-wrap">
+      <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M1 3h15v13H1zM16 8h4l3 3v5h-7V8zM5.5 18.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM18.5 18.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"/></svg>
+    </div>
+    <h3>Dry Van (53')</h3>
+    <div class="fleet-rpm-badge">Highest Benchmark: $2.92 / Mile <span class="badge-truckstop">Truckstop</span></div>
+    <p>High-volume freight lanes connecting Midwest, Southeast, and Texas distribution hubs with minimal deadhead miles.</p>
+    <div class="fleet-meta">
+      <span>Demand: <strong style="color:var(--emerald);">HIGH</strong></span>
+      <span>Top Lanes: Midwest / TX</span>
+    </div>
+  </div>
+
+  <div class="fleet-card">
+    <div class="fleet-icon-wrap">
+      <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+    </div>
+    <h3>Reefer</h3>
+    <div class="fleet-rpm-badge">Highest Benchmark: $3.52 / Mile <span class="badge-truckstop">Truckstop</span></div>
+    <p>Temperature-controlled produce and pharmaceutical loads with premium rate confirmations and quick payout guarantees.</p>
+    <div class="fleet-meta">
+      <span>Demand: <strong style="color:var(--emerald);">VERY HIGH</strong></span>
+      <span>Top Lanes: West / South</span>
+    </div>
+  </div>
+
+  <div class="fleet-card">
+    <div class="fleet-icon-wrap">
+      <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+    </div>
+    <h3>Flatbed / Step Deck</h3>
+    <div class="fleet-rpm-badge">Highest Benchmark: $3.70 / Mile <span class="badge-dat">DAT iQ</span></div>
+    <p>Heavy machinery, steel, building materials, and oversized equipment loads negotiated for maximum pay-per-mile.</p>
+    <div class="fleet-meta">
+      <span>Demand: <strong style="color:var(--emerald);">HIGH</strong></span>
+      <span>Top Lanes: National</span>
+    </div>
+  </div>
+
+  <div class="fleet-card">
+    <div class="fleet-icon-wrap">
+      <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+    </div>
+    <h3>Power Only</h3>
+    <div class="fleet-rpm-badge">Highest Benchmark: $2.75 / Mile <span class="badge-dat">DAT iQ</span></div>
+    <p>Keep your tractor rolling without trailer maintenance overhead. Drop-and-hook facility dispatches ready on arrival.</p>
+    <div class="fleet-meta">
+      <span>Demand: <strong style="color:var(--gold);">MEDIUM</strong></span>
+      <span>Top Lanes: East Coast</span>
+    </div>
+  </div>
+
+  <div class="fleet-card">
+    <div class="fleet-icon-wrap">
+      <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+    </div>
+    <h3>Box Truck (26')</h3>
+    <div class="fleet-rpm-badge">Highest Benchmark: $2.50 / Mile <span class="badge-dat">DAT iQ</span></div>
+    <p>Expedited, LTL, and final-mile regional routes for non-CDL and CDL box truck owner-operators.</p>
+    <div class="fleet-meta">
+      <span>Demand: <strong style="color:var(--emerald);">HIGH</strong></span>
+      <span>Top Lanes: Regional</span>
+    </div>
+  </div>
+
+  <div class="fleet-card">
+    <div class="fleet-icon-wrap">
+      <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+    </div>
+    <h3>Hotshot Fleet</h3>
+    <div class="fleet-rpm-badge">Highest Benchmark: $3.50 / Mile <span class="badge-truckstop">Truckstop</span></div>
+    <p>Dedicated 40' gooseneck flatbed dispatching tailored for quick-turnaround expedited freight.</p>
+    <div class="fleet-meta">
+      <span>Demand: <strong style="color:var(--emerald);">HIGH</strong></span>
+      <span>Top Lanes: South / TX</span>
+    </div>
+  </div>
 </div>
 </div>
 </section>
 
+<!-- SERVICES HIGHLIGHT -->
 <section class="services" id="services">
 <div class="container">
 <div class="services-header">
-<span class="section-label">Operational Capabilities</span>
-<h2 class="section-title">Built For Heavy Duty Operations</h2>
+<span class="section-label">Operational Excellence</span>
+<h2 class="section-title">BUILT FOR HEAVY DUTY OPERATIONS</h2>
+<p style="color: var(--gray-mid);">We don't just find loads—we run your entire back office, negotiate top dollar, handle detention claims, and streamline quick-pay factoring.</p>
 </div>
+
 <div class="services-grid">
 <div class="service-card">
-<div class="service-icon">🚚</div>
+<svg class="service-icon-svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
 <h3>Load Negotiation</h3>
-<p>We push back against standard broker rates to extract absolute premium pay-per-mile values using real-time spot market analytics.</p>
+<p>We push back against standard broker rates using real-time DAT & Truckstop spot market analytics to extract maximum pay-per-mile values for your equipment.</p>
+<ul class="service-detail">
+<li>Live spot-market rate benchmarking</li>
+<li>Aggressive broker negotiation</li>
+<li>Deadhead-minimizing lane sequencing</li>
+</ul>
 </div>
+
 <div class="service-card">
-<div class="service-icon">📄</div>
+<svg class="service-icon-svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
 <h3>Paperwork &amp; Setup</h3>
-<p>W-9, Certificate of Insurance, Broker Packages, and rate confirmations are rapidly completed accurately on your behalf.</p>
+<p>W-9, Certificate of Insurance, Broker Packets, and Rate Confirmations completed rapidly and accurately on your behalf so you stay rolling without delays.</p>
+<ul class="service-detail">
+<li>Carrier packet completion for new brokers</li>
+<li>Rate confirmation review before signing</li>
+<li>Secure cloud document storage</li>
+</ul>
 </div>
+
 <div class="service-card">
-<div class="service-icon">💳</div>
+<svg class="service-icon-svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 10h18M7 15h1m4 0h1m-7 4h12a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
 <h3>Billing &amp; Factoring</h3>
-<p>Immediate processing of invoices down to the factoring company so your cashflow remains uninterrupted week after week.</p>
+<p>Immediate submission of invoices and BOLs to your factoring company or broker quick-pay so your cash flow remains uninterrupted week after week.</p>
+<ul class="service-detail">
+<li>Same-day invoice processing post-delivery</li>
+<li>Factoring company coordination</li>
+<li>Detention & layover claims recovery</li>
+</ul>
 </div>
 </div>
+
 <div style="text-align:center; margin-top: 50px;">
-<a href="services.html" class="btn btn-secondary">View All Services</a>
+<a href="services.html" class="btn btn-secondary">View All Dispatch Services</a>
 </div>
 </div>
 </section>
 
+<!-- PRICING & COMMISSION COMPARISON -->
+<section class="pricing-section">
+<div class="container">
+<div class="services-header">
+<span class="section-label">Transparent Rates</span>
+<h2 class="section-title">TRANSPARENT DISPATCH COMMISSION</h2>
+<p style="color: var(--gray-mid);">No contracts, no hidden spreads. You see the original Rate Confirmation directly from the broker.</p>
+</div>
+
+<div class="pricing-grid">
+  <div class="pricing-card">
+    <h3>Standard Dispatch</h3>
+    <p style="color: var(--gray-mid); font-size:14px;">Ideal for owner-operators running single trucks.</p>
+    <div class="pricing-rate">5% <span>/ gross load</span></div>
+    <ul class="pricing-features">
+      <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/></svg> Full Load Booking &amp; Negotiation</li>
+      <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/></svg> Packet &amp; Rate Con Setup</li>
+      <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/></svg> Factoring &amp; Invoicing Support</li>
+      <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/></svg> 14-Day Free Trial</li>
+    </ul>
+    <a href="contact.html" class="btn btn-secondary" style="width:100%;">Select Standard Plan</a>
+  </div>
+
+  <div class="pricing-card popular">
+    <div class="pricing-popular-tag">MOST POPULAR</div>
+    <h3>Dedicated Dispatcher</h3>
+    <p style="color: var(--gray-mid); font-size:14px;">Dedicated 1-on-1 dispatcher assigned to your truck.</p>
+    <div class="pricing-rate">7% <span>/ gross load</span></div>
+    <ul class="pricing-features">
+      <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/></svg> Everything in Standard Plan</li>
+      <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/></svg> Dedicated 1-on-1 Dispatcher</li>
+      <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/></svg> Dedicated Lane &amp; Backhaul Planning</li>
+      <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/></svg> 24/7 Priority Breakdown/Detention Line</li>
+    </ul>
+    <a href="contact.html" class="btn btn-primary" style="width:100%;">Start 14-Day Free Trial</a>
+  </div>
+
+  <div class="pricing-card">
+    <h3>Fleet Custom</h3>
+    <p style="color: var(--gray-mid); font-size:14px;">For small to medium fleets with 3+ trucks.</p>
+    <div class="pricing-rate">Custom <span>volume rate</span></div>
+    <ul class="pricing-features">
+      <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/></svg> Dedicated Account Team</li>
+      <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/></svg> Multi-Truck Revenue Dashboard</li>
+      <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/></svg> Direct Shipper Freight Access</li>
+      <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/></svg> Discounted Tiered Commission</li>
+    </ul>
+    <a href="contact.html" class="btn btn-secondary" style="width:100%;">Get Fleet Quote</a>
+  </div>
+</div>
+</div>
+</section>
+
+<!-- PIPELINE / WORKFLOW -->
 <section class="pipeline" id="workflow">
 <div class="container">
 <div class="services-header" style="margin-bottom: 20px;">
-<span class="section-label">Fast Onboarding Pipeline</span>
-<h2 class="section-title">From Onboarding To Main Lane In 3 Steps</h2>
+<span class="section-label">Fast Carrier Setup</span>
+<h2 class="section-title">ONBOARDING TO MAIN LANE IN 3 STEPS</h2>
 </div>
 <div class="pipe-grid">
 <div class="pipe-step">
 <div class="pipe-num">01</div>
-<h3>Submit Authority</h3>
-<p>Send over your active MC Authority, copy of your Insurance Certificate, and signed W-9 format.</p>
+<h3>Submit Authority & Documents</h3>
+<p>Send your active MC/DOT Authority, Certificate of Insurance, and signed W-9. We complete broker setup packets immediately.</p>
 </div>
 <div class="pipe-step">
 <div class="pipe-num">02</div>
-<h3>Set Preferences</h3>
-<p>Define your lane expectations, preferred equipment types, home-time schedules, and target rates.</p>
+<h3>Define Lane Preferences</h3>
+<p>Set your target rate-per-mile, preferred regions, max gross weight, equipment parameters, and home-time expectations.</p>
 </div>
 <div class="pipe-step">
 <div class="pipe-num">03</div>
-<h3>Roll Out</h3>
-<p>Our dedicated dispatcher secures your first premium haul immediately. We dispatch, you drive.</p>
+<h3>Roll Out & Collect</h3>
+<p>Your dedicated dispatcher books high-paying loads, sends rate confirmations for your approval, and coordinates same-day billing.</p>
 </div>
 </div>
 <div style="text-align:center; margin-top: 50px;">
-<a href="how-it-works.html" class="btn btn-secondary">See Full Process</a>
+<a href="how-it-works.html" class="btn btn-secondary">Explore Onboarding Timeline</a>
 </div>
 </div>
 </section>
 
+<!-- REVIEWS & TESTIMONIALS -->
+<section class="reviews-section">
+<div class="container">
+<div class="services-header">
+<span class="section-label">Carrier Testimonials</span>
+<h2 class="section-title">WHAT OWNER-OPERATORS SAY</h2>
+<p style="color: var(--gray-mid);">Real carriers running real miles with Starling Dispatch across the United States.</p>
+</div>
+
+<div class="reviews-grid">
+  <div class="review-card">
+    <div class="review-stars">★★★★★</div>
+    <p>"Before Starling, I was spending 3 hours every night on load boards settling for $2.10/mile. My dispatcher got me on consistent Midwest lanes averaging $3.15/mile. Best decision for my truck."</p>
+    <div class="review-author">
+      <div class="review-avatar">M</div>
+      <div>
+        <h4>Marcus T.</h4>
+        <span>Dry Van Owner-Operator · TX</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="review-card">
+    <div class="review-stars">★★★★★</div>
+    <p>"The 14-day free trial proved everything. No pushy contracts, completely transparent rate cons, and they handle all factoring paperwork same-day. My weekly gross is up over 22%."</p>
+    <div class="review-author">
+      <div class="review-avatar">D</div>
+      <div>
+        <h4>Darius K.</h4>
+        <span>Reefer Fleet Owner · GA</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="review-card">
+    <div class="review-stars">★★★★★</div>
+    <p>"Finding backhauls without sitting around empty used to kill my margins. Starling sequences my routes so deadhead is under 5%. Highly recommend them to any serious carrier."</p>
+    <div class="review-author">
+      <div class="review-avatar">J</div>
+      <div>
+        <h4>Jason R.</h4>
+        <span>Flatbed Operator · OH</span>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+
+<!-- CTA BAND -->
 <section class="cta-band">
 <div class="container">
-<h2>Ready To Roll Out?</h2>
-<p>Activate your 14-day free trial and let our dispatchers find your next premium haul.</p>
-<a href="contact.html" class="btn btn-primary">Start Free Trial</a>
+<h2>READY TO MULTIPLY YOUR REVENUE?</h2>
+<p>Activate your 14-day free trial today. Put a dedicated dispatcher behind your wheel and keep your truck moving at top market rates.</p>
+<a href="contact.html" class="btn btn-primary">Start 14-Day Free Trial</a>
 </div>
 </section>
 
@@ -179,15 +475,16 @@
 <div class="footer-brand">STARLING DISPATCH</div>
 <div class="footer-links">
 <a href="mailto:Support@starlingdispatch.com">Email Us</a>
-<a href="https://instagram.com/starling_dispatch" target="_blank">Instagram</a>
+<a href="tel:+19253105443">+1 925 310 5443</a>
 <a href="about.html">About</a>
 <a href="services.html">Services</a>
-<a href="contact.html">Apply</a>
+<a href="pricing.html">Pricing</a>
+<a href="contact.html">Apply Now</a>
 </div>
 </div>
 <div class="footer-bottom">
 <div>© 2026 STARLINGDISPATCH.COM · ALL RIGHTS RESERVED</div>
-<div>PROFESSIONAL FREIGHT DISPATCHING SYSTEM V1.0</div>
+<div>PROFESSIONAL USA FREIGHT DISPATCHING SYSTEM</div>
 </div>
 </div>
 </footer>
