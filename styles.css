@@ -306,9 +306,8 @@ nav ul a.active::after {
 .hero {
   position: relative;
   padding: 100px 0 120px;
-  background: radial-gradient(circle at 20% 20%, rgba(232, 156, 10, 0.12) 0%, transparent 50%),
-              radial-gradient(circle at 80% 80%, rgba(15, 31, 51, 0.8) 0%, transparent 60%),
-              linear-gradient(180deg, var(--navy-deep) 0%, var(--navy-bg) 100%);
+  background: linear-gradient(180deg, rgba(5, 13, 24, 0.88) 0%, rgba(8, 17, 30, 0.94) 100%),
+              url('images/hero-bg.png') center/cover no-repeat;
   overflow: hidden;
 }
 
@@ -537,19 +536,64 @@ nav ul a.active::after {
 }
 
 .fleet-card {
-  background: var(--navy-card);
-  border: var(--border-glass);
+  background-color: var(--navy-card);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: var(--radius-md);
   padding: 32px;
   transition: var(--transition);
   position: relative;
   overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.fleet-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, rgba(8, 17, 30, 0.86) 0%, rgba(5, 13, 24, 0.95) 100%);
+  transition: var(--transition);
+  z-index: -1;
+}
+
+.fleet-card:hover::before {
+  background: linear-gradient(180deg, rgba(8, 17, 30, 0.72) 0%, rgba(5, 13, 24, 0.90) 100%);
 }
 
 .fleet-card:hover {
-  transform: translateY(-6px);
-  border-color: rgba(232, 156, 10, 0.4);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 0 0 20px rgba(232, 156, 10, 0.1);
+  transform: translateY(-8px);
+  border-color: rgba(232, 156, 10, 0.6);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 25px rgba(232, 156, 10, 0.25);
+}
+
+.fleet-dry-van {
+  background-image: url('images/dry-van.png');
+}
+
+.fleet-reefer {
+  background-image: url('images/reefer.png');
+}
+
+.fleet-flatbed {
+  background-image: url('images/flatbed.png');
+}
+
+.fleet-power-only {
+  background-image: url('images/power-only.png');
+}
+
+.fleet-box-truck {
+  background-image: url('images/box-truck.png');
+}
+
+.fleet-hotshot {
+  background-image: url('images/hotshot.png');
 }
 
 .fleet-icon-wrap {
@@ -965,7 +1009,8 @@ nav ul a.active::after {
 .page-hero {
   position: relative;
   padding: 150px 0 70px;
-  background: linear-gradient(180deg, #030810 0%, var(--navy-bg) 100%);
+  background: linear-gradient(180deg, rgba(3, 8, 16, 0.88) 0%, rgba(8, 17, 30, 0.95) 100%),
+              url('images/hero-bg.png') center/cover no-repeat;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
@@ -1141,7 +1186,8 @@ nav ul a.active::after {
 /* ── CTA BAND ── */
 .cta-band {
   padding: 80px 0;
-  background: linear-gradient(135deg, #050D18 0%, #0F1F33 100%);
+  background: linear-gradient(135deg, rgba(5, 13, 24, 0.90) 0%, rgba(15, 31, 51, 0.94) 100%),
+              url('images/hero-bg.png') center/cover no-repeat;
   text-align: center;
   border-top: 1px solid rgba(232, 156, 10, 0.2);
   border-bottom: 1px solid rgba(232, 156, 10, 0.2);
