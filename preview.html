@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Glass Preview</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="bg-orbs"><span class="orb-blue"></span></div>
+
+<header>
+  <div class="container nav-wrap">
+    <div class="logo"><strong style="font-family:var(--font-display);font-size:24px;letter-spacing:.05em;">STARLING</strong></div>
+    <nav>
+      <ul>
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Pricing</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="header-cta"><a href="#" class="btn btn-secondary">Sign In</a> <a href="#" class="btn btn-primary">Get Started</a></div>
+    <button class="nav-toggle" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<div class="ticker-wrap">
+  <div class="container ticker-header-bar"><span>Live Spot Rates</span><span>Updated Now</span></div>
+  <div class="ticker-content">
+    <span class="ticker-item"><span class="ticker-lane">LA → DAL</span><span class="ticker-rate">$2.85/mi</span><span class="ticker-equip">Dry Van</span></span>
+    <span class="ticker-item"><span class="ticker-lane">CHI → ATL</span><span class="ticker-rate">$3.45/mi</span><span class="ticker-equip">Reefer</span></span>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-content">
+      <h1>Freight Dispatch <span>Made Simple</span></h1>
+      <p class="lead">Real glass, real rates, real dispatch. See how the frosted UI reads over the ambient glow.</p>
+      <div class="hero-actions">
+        <a href="#" class="btn btn-primary">Get a Rate</a>
+        <a href="#" class="btn btn-secondary">Learn More</a>
+      </div>
+    </div>
+    <div class="calc-card">
+      <div class="calc-card-header"><h3>Rate Calculator</h3></div>
+      <div class="calc-source-toggle">
+        <button class="calc-source-btn active" data-source="highest">Best</button>
+        <button class="calc-source-btn" data-source="dat">DAT</button>
+        <button class="calc-source-btn" data-source="truckstop">Truckstop</button>
+      </div>
+      <div class="calc-field">
+        <label>Equipment</label>
+        <select id="calc-truck">
+          <option value="dry-van">Dry Van</option>
+          <option value="reefer">Reefer</option>
+        </select>
+      </div>
+      <div class="calc-field">
+        <label>Miles <span id="calc-miles-val">2,500 miles</span></label>
+        <input type="range" class="calc-range" id="calc-miles" min="200" max="3000" value="2500">
+      </div>
+      <div class="calc-output-box">
+        <div class="calc-output-sub">Estimated Gross</div>
+        <div class="calc-output-val" id="calc-gross">$7,125</div>
+        <div class="calc-output-sub" id="calc-net">$6,769/wk after 5% dispatch</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="metrics">
+  <div class="container metrics-grid">
+    <div class="metric-card"><h3>2,400+</h3><p>Loads Booked</p></div>
+    <div class="metric-card"><h3>98%</h3><p>On-Time</p></div>
+    <div class="metric-card"><h3>5%</h3><p>Flat Fee</p></div>
+    <div class="metric-card"><h3>24/7</h3><p>Support</p></div>
+  </div>
+</section>
+
+<section class="services">
+  <div class="container">
+    <div class="services-header">
+      <span class="section-label">What We Do</span>
+      <h2 class="section-title">Dispatch Services</h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-card"><h3>Load Booking</h3><p>We find and negotiate your loads.</p></div>
+      <div class="service-card"><h3>Paperwork</h3><p>BOLs, rate cons, invoicing handled.</p></div>
+      <div class="service-card"><h3>Support</h3><p>24/7 dispatcher on call.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="faq-section">
+  <div class="container">
+    <div class="faq-search-box"><input id="faq-search-input" placeholder="Search FAQs..."></div>
+    <div class="faq-list">
+      <details class="faq-item" open><summary>How does the flat fee work?</summary><div class="faq-answer">We charge 5% per load, no hidden costs.</div></summary></details>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-top">
+    <div class="footer-brand">STARLING</div>
+    <div class="footer-links"><a href="#">Privacy</a><a href="#">Terms</a></div>
+  </div>
+</footer>
+
+<script src="nav.js"></script>
+</body>
+</html>

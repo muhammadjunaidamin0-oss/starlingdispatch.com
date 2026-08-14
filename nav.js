@@ -1,7 +1,106 @@
-// STARLING DISPATCH INTERACTIVE FREIGHT ENGINE & CALCULATOR
+/* ══════════════════════════════════════════════════════
+   STARLING DISPATCH — Interactive Engine v2.0
+   Scroll Reveals · Stat Counters · Sticky CTA · Calculator
+══════════════════════════════════════════════════════ */
 
 document.addEventListener('DOMContentLoaded', function () {
-  // 1. Mobile Navigation Toggle
+
+  // ── 1. Scroll Reveal (IntersectionObserver) ──
+  var revealObs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObs.unobserve(entry.target);
+      }
+    });
+  }, { rootMargin: '0px 0px -60px 0px', threshold: 0.12 });
+
+  document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(function (el) {
+    revealObs.observe(el);
+  });
+
+  // ── 2. Stat Counter Animation ──
+  function animateCounter(el) {
+    var target = parseFloat(el.getAttribute('data-target'));
+    var prefix = el.getAttribute('data-prefix') || '';
+    var suffix = el.getAttribute('data-suffix') || '';
+    var decimals = (el.getAttribute('data-decimals') || '0');
+    var duration = 1800;
+    var start = 0;
+    var startTime = null;
+
+    function step(timestamp) {
+      if (!startTime) startTime = timestamp;
+      var progress = Math.min((timestamp - startTime) / duration, 1);
+      // ease-out quad
+      var eased = 1 - (1 - progress) * (1 - progress);
+      var current = start + (target - start) * eased;
+      if (parseInt(decimals) > 0) {
+        el.textContent = prefix + current.toFixed(parseInt(decimals)) + suffix;
+      } else {
+        el.textContent = prefix + Math.round(current).toLocaleString() + suffix;
+      }
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      }
+    }
+    requestAnimationFrame(step);
+  }
+
+  var statObs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        var counters = entry.target.querySelectorAll('[data-target]');
+        counters.forEach(function (c) { animateCounter(c); });
+        statObs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.20 });
+
+  document.querySelectorAll('.stat-card').forEach(function (el) {
+    statObs.observe(el);
+  });
+
+  // ── 3. Header Scroll Effect ──
+  var header = document.querySelector('header');
+  var lastScroll = 0;
+  window.addEventListener('scroll', function () {
+    var scroll = window.pageYOffset;
+    if (header) {
+      if (scroll > 60) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    }
+    lastScroll = scroll;
+  }, { passive: true });
+
+  // ── 4. Sticky CTA Bar ──
+  var stickyCta = document.querySelector('.sticky-cta');
+  var stickyDismissed = false;
+
+  if (stickyCta) {
+    var closeBtn = stickyCta.querySelector('.sticky-cta-close');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function () {
+        stickyCta.classList.remove('visible');
+        stickyDismissed = true;
+      });
+    }
+
+    window.addEventListener('scroll', function () {
+      if (stickyDismissed) return;
+      if (window.pageYOffset > 500) {
+        stickyCta.classList.add('visible');
+      } else {
+        stickyCta.classList.remove('visible');
+      }
+    }, { passive: true });
+  }
+
+  // ── 5. Mobile Navigation Toggle ──
   var toggle = document.querySelector('.nav-toggle');
   var nav = document.querySelector('nav');
   var headerCta = document.querySelector('.header-cta');
@@ -15,43 +114,17 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // 2. DAT iQ & Truckstop Spot Rate Data Engine
-  // Benchmarking real-time highest spot market rates across DAT One and Truckstop RateMate
+  // ── 6. Calculator Engine (DAT + Truckstop) ──
   var spotMarketData = {
-    'dry-van': {
-      dat: 2.85,
-      truckstop: 2.92,
-      bestSource: 'Truckstop'
-    },
-    'reefer': {
-      dat: 3.45,
-      truckstop: 3.52,
-      bestSource: 'Truckstop'
-    },
-    'flatbed': {
-      dat: 3.70,
-      truckstop: 3.65,
-      bestSource: 'DAT iQ'
-    },
-    'step-deck': {
-      dat: 3.80,
-      truckstop: 3.88,
-      bestSource: 'Truckstop'
-    },
-    'power-only': {
-      dat: 2.75,
-      truckstop: 2.70,
-      bestSource: 'DAT iQ'
-    },
-    'box-truck': {
-      dat: 2.50,
-      truckstop: 2.45,
-      bestSource: 'DAT iQ'
-    }
+    'dry-van':    { dat: 2.85, truckstop: 2.92, bestSource: 'Truckstop' },
+    'reefer':     { dat: 3.45, truckstop: 3.52, bestSource: 'Truckstop' },
+    'flatbed':    { dat: 3.70, truckstop: 3.65, bestSource: 'DAT iQ' },
+    'step-deck':  { dat: 3.80, truckstop: 3.88, bestSource: 'Truckstop' },
+    'power-only': { dat: 2.75, truckstop: 2.70, bestSource: 'DAT iQ' },
+    'box-truck':  { dat: 2.50, truckstop: 2.45, bestSource: 'DAT iQ' }
   };
 
-  var activeRateSource = 'highest'; // 'highest', 'dat', or 'truckstop'
-
+  var activeRateSource = 'highest';
   var calcTruck = document.getElementById('calc-truck');
   var calcMiles = document.getElementById('calc-miles');
   var calcMilesVal = document.getElementById('calc-miles-val');
@@ -59,34 +132,25 @@ document.addEventListener('DOMContentLoaded', function () {
   var calcNet = document.getElementById('calc-net');
   var calcSourceBtns = document.querySelectorAll('.calc-source-btn');
 
-  function getEffectiveRPM(equipmentKey) {
-    var data = spotMarketData[equipmentKey] || spotMarketData['dry-van'];
-    if (activeRateSource === 'dat') return data.dat;
-    if (activeRateSource === 'truckstop') return data.truckstop;
-    // Default to 'highest' / best rate between DAT & Truckstop
-    return Math.max(data.dat, data.truckstop);
+  function getEffectiveRPM(key) {
+    var d = spotMarketData[key] || spotMarketData['dry-van'];
+    if (activeRateSource === 'dat') return d.dat;
+    if (activeRateSource === 'truckstop') return d.truckstop;
+    return Math.max(d.dat, d.truckstop);
   }
 
   function updateCalculator() {
     if (!calcTruck || !calcMiles || !calcGross || !calcNet) return;
-    
     var truckType = calcTruck.value || 'dry-van';
     var miles = parseInt(calcMiles.value, 10) || 2500;
     var rpm = getEffectiveRPM(truckType);
-
-    if (calcMilesVal) {
-      calcMilesVal.textContent = miles.toLocaleString() + ' miles';
-    }
-
+    if (calcMilesVal) calcMilesVal.textContent = miles.toLocaleString() + ' miles';
     var grossWeekly = Math.round(miles * rpm);
-    var fee = Math.round(grossWeekly * 0.05); // 5% Starling Dispatch Fee
+    var fee = Math.round(grossWeekly * 0.05);
     var netWeekly = grossWeekly - fee;
-
     var dataObj = spotMarketData[truckType] || spotMarketData['dry-van'];
-    var bestSource = dataObj.bestSource;
-
     calcGross.textContent = '$' + grossWeekly.toLocaleString();
-    calcNet.textContent = '$' + netWeekly.toLocaleString() + '/wk after 5% dispatch (' + bestSource + ' Peak Rate @ $' + rpm.toFixed(2) + '/mi)';
+    calcNet.textContent = '$' + netWeekly.toLocaleString() + '/wk after 5% dispatch (' + dataObj.bestSource + ' @ $' + rpm.toFixed(2) + '/mi)';
   }
 
   if (calcSourceBtns.length > 0) {
@@ -103,17 +167,17 @@ document.addEventListener('DOMContentLoaded', function () {
   if (calcTruck && calcMiles) {
     calcTruck.addEventListener('change', updateCalculator);
     calcMiles.addEventListener('input', updateCalculator);
-    updateCalculator(); // Initialize on load
+    updateCalculator();
   }
 
-  // 3. Live Freight Ticker Duplication & Continuous Scroll
+  // ── 7. Live Freight Ticker Duplication ──
   var tickerContent = document.querySelector('.ticker-content');
-  if (tickerContent && tickerContent.children.length > 0) {
-    // Clone children for infinite seamless marquee loop
+  if (tickerContent && tickerContent.children.length > 0 && !tickerContent.dataset.duplicated) {
     tickerContent.innerHTML += tickerContent.innerHTML;
+    tickerContent.dataset.duplicated = 'true';
   }
 
-  // 4. FAQ Search Filter Logic
+  // ── 8. FAQ Search Filter ──
   var faqSearch = document.getElementById('faq-search-input');
   var faqItems = document.querySelectorAll('.faq-item');
 
@@ -122,12 +186,20 @@ document.addEventListener('DOMContentLoaded', function () {
       var query = e.target.value.toLowerCase().trim();
       faqItems.forEach(function (item) {
         var text = item.textContent.toLowerCase();
-        if (text.includes(query)) {
-          item.style.display = 'block';
-        } else {
-          item.style.display = 'none';
-        }
+        item.style.display = text.includes(query) ? '' : 'none';
       });
     });
   }
+
+  // ── 9. Smooth scroll for anchor links ──
+  document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+    link.addEventListener('click', function (e) {
+      var target = document.querySelector(link.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
 });
