@@ -5,17 +5,35 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>How It Works — Starling Dispatch</title>
 <meta name="description" content="Simple 3-step carrier onboarding. Submit your MC authority, set your lane preferences, and start hauling high-paying freight with Starling Dispatch." />
+<meta name="theme-color" content="#030B14" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Starling Dispatch" />
+<meta property="og:title" content="How It Works — Starling Dispatch" />
+<meta property="og:description" content="Simple 3-step carrier onboarding. Submit your MC authority, set your lane preferences, and start hauling high-paying freight with Starling Dispatch." />
+<meta property="og:image" content="starling-dispatch-banner.svg" />
+<meta property="og:url" content="https://starlingdispatch.com/how-it-works.html" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="How It Works — Starling Dispatch" />
+<meta name="twitter:description" content="Simple 3-step carrier onboarding. Submit your MC authority, set your lane preferences, and start hauling high-paying freight with Starling Dispatch." />
+<meta name="twitter:image" content="starling-dispatch-banner.svg" />
+
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
 
 <header>
 <div class="container nav-wrap">
 <a href="index.html" class="logo">
-<img src="starling-dispatch-logo-dark.svg" alt="Starling Dispatch Logo" />
+<img src="starling-dispatch-logo-dark.svg" alt="Starling Dispatch Logo" width="180" height="34" />
 </a>
 <nav>
 <ul>
@@ -35,7 +53,7 @@
 </div>
 </header>
 
-<section class="page-hero">
+<section class="page-hero" id="main-content">
 <div class="container page-hero-content">
 <div class="breadcrumb"><a href="index.html">Home</a> / How It Works</div>
 <span class="section-label">Seamless Onboarding</span>
@@ -45,8 +63,10 @@
 </section>
 
 <!-- DISPATCH LIFECYCLE PIPELINE -->
-<section class="pipeline">
-<div class="container">
+<section class="pipeline" style="position:relative; overflow:hidden;">
+<div class="ambient-orb ambient-orb-1" style="top:10%; right:5%;"></div>
+<div class="ambient-orb ambient-orb-2" style="bottom:5%; left:5%;"></div>
+<div class="container" style="position:relative; z-index:1;">
 <div class="services-header reveal" style="margin-bottom: 20px;">
 <span class="section-label">Carrier Journey</span>
 <h2 class="section-title">THE <span>5-STAGE</span> DISPATCH LIFECYCLE</h2>
@@ -93,8 +113,10 @@
 </section>
 
 <!-- ONBOARDING CHECKLIST REQUIREMENT SECTION -->
-<section class="fleet-section" style="background: var(--navy-deep);">
-<div class="container">
+<section class="fleet-section" style="background: var(--navy-deep); position:relative; overflow:hidden;">
+<div class="ambient-orb ambient-orb-1" style="top:20%; left:15%;"></div>
+<div class="ambient-orb ambient-orb-2" style="bottom:15%; right:10%;"></div>
+<div class="container" style="position:relative; z-index:1;">
 <div class="services-header reveal">
 <span class="section-label">Carrier Requirements</span>
 <h2 class="section-title">WHAT YOU NEED TO <span>GET STARTED</span></h2>
@@ -102,33 +124,25 @@
 </div>
 
 <div class="fleet-grid stagger" style="grid-template-columns: repeat(4, 1fr);">
-  <div class="fleet-card reveal" style="text-align: center; min-height: 240px;">
-    <div class="fleet-card-body">
-    <div class="fleet-icon-wrap" style="margin: 0 auto 16px;">📄</div>
-    <h3>Active MC / DOT</h3>
-    <p>Active interstate or intrastate motor carrier authority in good standing.</p>
-    </div>
+  <div class="service-card reveal" style="text-align: center; padding: 32px 24px;">
+    <div class="fleet-icon-wrap" style="margin: 0 auto 16px; width:52px; height:52px; font-size:22px;">📄</div>
+    <h3 style="font-size:20px;">Active MC / DOT</h3>
+    <p style="font-size:13px; color:var(--gray-mid); margin-top:8px;">Active interstate or intrastate motor carrier authority in good standing.</p>
   </div>
-  <div class="fleet-card reveal" style="text-align: center; min-height: 240px;">
-    <div class="fleet-card-body">
-    <div class="fleet-icon-wrap" style="margin: 0 auto 16px;">🛡️</div>
-    <h3>Certificate of Insurance</h3>
-    <p>$1,000,000 Auto Liability and $100,000 Cargo Insurance policy.</p>
-    </div>
+  <div class="service-card reveal" style="text-align: center; padding: 32px 24px;">
+    <div class="fleet-icon-wrap" style="margin: 0 auto 16px; width:52px; height:52px; font-size:22px;">🛡️</div>
+    <h3 style="font-size:20px;">Certificate of Insurance</h3>
+    <p style="font-size:13px; color:var(--gray-mid); margin-top:8px;">$1,000,000 Auto Liability and $100,000 Cargo Insurance policy.</p>
   </div>
-  <div class="fleet-card reveal" style="text-align: center; min-height: 240px;">
-    <div class="fleet-card-body">
-    <div class="fleet-icon-wrap" style="margin: 0 auto 16px;">📝</div>
-    <h3>W-9 Form</h3>
-    <p>Signed tax document for carrier verification and quick-pay processing.</p>
-    </div>
+  <div class="service-card reveal" style="text-align: center; padding: 32px 24px;">
+    <div class="fleet-icon-wrap" style="margin: 0 auto 16px; width:52px; height:52px; font-size:22px;">📝</div>
+    <h3 style="font-size:20px;">W-9 Form</h3>
+    <p style="font-size:13px; color:var(--gray-mid); margin-top:8px;">Signed tax document for carrier verification and quick-pay processing.</p>
   </div>
-  <div class="fleet-card reveal" style="text-align: center; min-height: 240px;">
-    <div class="fleet-card-body">
-    <div class="fleet-icon-wrap" style="margin: 0 auto 16px;">💳</div>
-    <h3>Factoring NOA</h3>
-    <p>Notice of Assignment if you use a factoring company for immediate funding.</p>
-    </div>
+  <div class="service-card reveal" style="text-align: center; padding: 32px 24px;">
+    <div class="fleet-icon-wrap" style="margin: 0 auto 16px; width:52px; height:52px; font-size:22px;">💳</div>
+    <h3 style="font-size:20px;">Factoring NOA</h3>
+    <p style="font-size:13px; color:var(--gray-mid); margin-top:8px;">Notice of Assignment if you use a factoring company for immediate funding.</p>
   </div>
 </div>
 </div>
@@ -140,7 +154,7 @@
 <p>Start your 14-day free trial today. Connect your truck to our dedicated dispatch desk now.</p>
 <div class="cta-band-actions">
 <a href="contact.html" class="btn btn-primary">Start Free Trial</a>
-<a href="tel:+19253105443" class="btn btn-ghost">Call +1 925 310 5443</a>
+<a href="tel:+19162090883" class="btn btn-ghost">Call +1 (916) 209-0883</a>
 </div>
 </div>
 </section>
@@ -149,7 +163,7 @@
 <div class="container">
 <div class="footer-grid">
 <div>
-  <div class="footer-logo"><img src="starling-dispatch-logo-dark.svg" alt="Starling Dispatch" /></div>
+  <div class="footer-logo"><img src="starling-dispatch-logo-dark.svg" alt="Starling Dispatch" loading="lazy" width="180" height="34" /></div>
   <p class="footer-brand-desc">Professional freight dispatching for owner-operators and carrier fleets across the continental United States. DAT iQ & Truckstop certified.</p>
 </div>
 <div class="footer-col">
@@ -173,7 +187,7 @@
 <div class="footer-col">
   <h4>Contact</h4>
   <ul>
-    <li><a href="tel:+19253105443">+1 925 310 5443</a></li>
+    <li><a href="tel:+19162090883">+1 (916) 209-0883</a></li>
     <li><a href="mailto:Support@starlingdispatch.com">Support@starlingdispatch.com</a></li>
     <li><a href="contact.html">Carrier Application</a></li>
     <li><a href="https://instagram.com/starling_dispatch" target="_blank">@starling_dispatch</a></li>
@@ -192,7 +206,8 @@
     🚛 <strong>Start Your 14-Day Free Trial</strong> <span class="hide-mobile">— No Setup Fee, No Contracts</span>
   </div>
   <div class="sticky-cta-actions">
-    <a href="contact.html" class="btn btn-primary" style="padding:10px 22px; font-size:11px;">Apply Now</a>
+    <a href="tel:+19162090883" class="btn btn-ghost" style="padding:9px 14px; font-size:11px;">📞 Call Us</a>
+    <a href="contact.html" class="btn btn-primary" style="padding:9px 18px; font-size:11px;">Free Trial</a>
     <button class="sticky-cta-close" aria-label="Dismiss">✕</button>
   </div>
 </div>

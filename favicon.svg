@@ -1,0 +1,24 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F2340"/>
+      <stop offset="100%" stop-color="#050D18"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FBBF24"/>
+      <stop offset="50%" stop-color="#E89C0A"/>
+      <stop offset="100%" stop-color="#C07808"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="url(#bgGrad)"/>
+  <rect width="60" height="60" x="2" y="2" rx="12" fill="none" stroke="url(#goldGrad)" stroke-width="1.5" opacity="0.6"/>
+  <g transform="translate(7, 10) scale(0.48)">
+    <path d="M 46 24 L 2 6 L 63 20 Z" fill="url(#goldGrad)"/>
+    <path d="M 53 22 L 20 10 L 66 19 Z" fill="#FDE68A" opacity="0.6"/>
+    <path d="M 22 29 L 58 20 L 86 29 L 58 38 Z" fill="url(#goldGrad)"/>
+    <path d="M 84 29 L 106 27 L 106 31 Z" fill="#FDE68A"/>
+    <path d="M 36 36 L 2 54 L 20 41 Z" fill="url(#goldGrad)"/>
+    <path d="M 25 40 L 5 60 L 15 47 Z" fill="#C07808"/>
+    <circle cx="80" cy="27" r="2.5" fill="#FFFFFF" opacity="0.9"/>
+  </g>
+</svg>

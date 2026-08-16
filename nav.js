@@ -105,6 +105,17 @@ document.addEventListener('DOMContentLoaded', function () {
   var nav = document.querySelector('nav');
   var headerCta = document.querySelector('.header-cta');
 
+  function closeMobileNav() {
+    if (nav && nav.classList.contains('nav-open')) {
+      nav.classList.remove('nav-open');
+      if (headerCta) headerCta.classList.remove('nav-open');
+      if (toggle) {
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.textContent = '☰';
+      }
+    }
+  }
+
   if (toggle && nav) {
     toggle.addEventListener('click', function () {
       var isOpen = nav.classList.toggle('nav-open');
@@ -112,16 +123,21 @@ document.addEventListener('DOMContentLoaded', function () {
       toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
       toggle.textContent = isOpen ? '✕' : '☰';
     });
+
+    // Close menu when tapping any link inside
+    nav.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', closeMobileNav);
+    });
   }
 
   // ── 6. Calculator Engine (DAT + Truckstop) ──
   var spotMarketData = {
-    'dry-van':    { dat: 2.85, truckstop: 2.92, bestSource: 'Truckstop' },
-    'reefer':     { dat: 3.45, truckstop: 3.52, bestSource: 'Truckstop' },
-    'flatbed':    { dat: 3.70, truckstop: 3.65, bestSource: 'DAT iQ' },
-    'step-deck':  { dat: 3.80, truckstop: 3.88, bestSource: 'Truckstop' },
-    'power-only': { dat: 2.75, truckstop: 2.70, bestSource: 'DAT iQ' },
-    'box-truck':  { dat: 2.50, truckstop: 2.45, bestSource: 'DAT iQ' }
+    'dry-van':    { dat: 3.02, truckstop: 3.10, bestSource: 'Truckstop' },
+    'reefer':     { dat: 3.65, truckstop: 3.72, bestSource: 'Truckstop' },
+    'flatbed':    { dat: 3.92, truckstop: 3.85, bestSource: 'DAT iQ' },
+    'step-deck':  { dat: 4.00, truckstop: 4.10, bestSource: 'Truckstop' },
+    'power-only': { dat: 2.90, truckstop: 2.85, bestSource: 'DAT iQ' },
+    'box-truck':  { dat: 2.65, truckstop: 2.60, bestSource: 'DAT iQ' }
   };
 
   var activeRateSource = 'highest';
@@ -146,11 +162,11 @@ document.addEventListener('DOMContentLoaded', function () {
     var rpm = getEffectiveRPM(truckType);
     if (calcMilesVal) calcMilesVal.textContent = miles.toLocaleString() + ' miles';
     var grossWeekly = Math.round(miles * rpm);
-    var fee = Math.round(grossWeekly * 0.05);
+    var fee = Math.round(grossWeekly * 0.06);
     var netWeekly = grossWeekly - fee;
     var dataObj = spotMarketData[truckType] || spotMarketData['dry-van'];
     calcGross.textContent = '$' + grossWeekly.toLocaleString();
-    calcNet.textContent = '$' + netWeekly.toLocaleString() + '/wk after 5% dispatch (' + dataObj.bestSource + ' @ $' + rpm.toFixed(2) + '/mi)';
+    calcNet.textContent = '$' + netWeekly.toLocaleString() + '/wk after 6% dispatch (' + dataObj.bestSource + ' @ $' + rpm.toFixed(2) + '/mi)';
   }
 
   if (calcSourceBtns.length > 0) {

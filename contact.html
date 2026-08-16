@@ -5,17 +5,56 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Carrier Onboarding & Contact — Starling Dispatch</title>
 <meta name="description" content="Activate your 14-day free trial with Starling Dispatch. Reach our carrier onboarding team by phone, email, or direct application form." />
+<meta name="theme-color" content="#030B14" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Starling Dispatch" />
+<meta property="og:title" content="Carrier Onboarding & Contact — Starling Dispatch" />
+<meta property="og:description" content="Activate your 14-day free trial with Starling Dispatch. Reach our carrier onboarding team by phone, email, or direct application form." />
+<meta property="og:image" content="starling-dispatch-banner.svg" />
+<meta property="og:url" content="https://starlingdispatch.com/contact.html" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Carrier Onboarding & Contact — Starling Dispatch" />
+<meta name="twitter:description" content="Activate your 14-day free trial with Starling Dispatch. Reach our carrier onboarding team by phone, email, or direct application form." />
+<meta name="twitter:image" content="starling-dispatch-banner.svg" />
+
+<!-- ContactPage Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Starling Dispatch Carrier Onboarding",
+  "description": "Express carrier onboarding and 14-day free trial setup.",
+  "mainEntity": {
+    "@type": "LocalBusiness",
+    "name": "Starling Dispatch",
+    "telephone": "+1-916-209-0883",
+    "email": "Support@starlingdispatch.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressRegion": "NC",
+      "addressCountry": "US"
+    }
+  }
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
 
 <header>
 <div class="container nav-wrap">
 <a href="index.html" class="logo">
-<img src="starling-dispatch-logo-dark.svg" alt="Starling Dispatch Logo" />
+<img src="starling-dispatch-logo-dark.svg" alt="Starling Dispatch Logo" width="180" height="34" />
 </a>
 <nav>
 <ul>
@@ -35,7 +74,7 @@
 </div>
 </header>
 
-<section class="page-hero">
+<section class="page-hero" id="main-content">
 <div class="container page-hero-content">
 <div class="breadcrumb"><a href="index.html">Home</a> / Contact</div>
 <span class="section-label">Carrier Onboarding</span>
@@ -44,8 +83,10 @@
 </div>
 </section>
 
-<section class="contact-section">
-<div class="container">
+<section class="contact-section" style="position:relative; overflow:hidden;">
+<div class="ambient-orb ambient-orb-1" style="top:15%; right:10%;"></div>
+<div class="ambient-orb ambient-orb-2" style="bottom:10%; left:5%;"></div>
+<div class="container" style="position:relative; z-index:1;">
 <div class="contact-grid">
 <div class="contact-info reveal">
 <span class="section-label">Direct Reach</span>
@@ -59,7 +100,7 @@
 </div>
 <div class="contact-detail-text">
 <h4>Dispatch Desk Hotline</h4>
-<p><a href="tel:+19253105443" style="color:var(--white);">+1 925 310 5443</a></p>
+<p><a href="tel:+19162090883" style="color:var(--white);">+1 (916) 209-0883</a></p>
 </div>
 </div>
 
@@ -141,7 +182,7 @@
 <div class="container">
 <div class="footer-grid">
 <div>
-  <div class="footer-logo"><img src="starling-dispatch-logo-dark.svg" alt="Starling Dispatch" /></div>
+  <div class="footer-logo"><img src="starling-dispatch-logo-dark.svg" alt="Starling Dispatch" loading="lazy" width="180" height="34" /></div>
   <p class="footer-brand-desc">Professional freight dispatching for owner-operators and carrier fleets across the continental United States. DAT iQ & Truckstop certified.</p>
 </div>
 <div class="footer-col">
@@ -165,7 +206,7 @@
 <div class="footer-col">
   <h4>Contact</h4>
   <ul>
-    <li><a href="tel:+19253105443">+1 925 310 5443</a></li>
+    <li><a href="tel:+19162090883">+1 (916) 209-0883</a></li>
     <li><a href="mailto:Support@starlingdispatch.com">Support@starlingdispatch.com</a></li>
     <li><a href="contact.html">Carrier Application</a></li>
     <li><a href="https://instagram.com/starling_dispatch" target="_blank">@starling_dispatch</a></li>
@@ -184,7 +225,8 @@
     🚛 <strong>Start Your 14-Day Free Trial</strong> <span class="hide-mobile">— No Setup Fee, No Contracts</span>
   </div>
   <div class="sticky-cta-actions">
-    <a href="contact.html" class="btn btn-primary" style="padding:10px 22px; font-size:11px;">Apply Now</a>
+    <a href="tel:+19162090883" class="btn btn-ghost" style="padding:9px 14px; font-size:11px;">📞 Call Us</a>
+    <a href="contact.html" class="btn btn-primary" style="padding:9px 18px; font-size:11px;">Free Trial</a>
     <button class="sticky-cta-close" aria-label="Dismiss">✕</button>
   </div>
 </div>
