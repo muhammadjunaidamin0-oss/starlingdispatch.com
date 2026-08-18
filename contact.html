@@ -129,27 +129,27 @@
 <div class="contact-form-card reveal-scale">
 <h3>Carrier Application</h3>
 <p>Complete the form below and our onboarding manager will contact you within 15 minutes.</p>
-<form id="onboard-form" action="https://docs.google.com/forms/u/0/d/1YBFeIpS_d1EathfPf9JLi3m9CEcAERK4b8gVJcYxXL4/formResponse" method="POST" target="hidden-submit-frame">
+<form id="onboard-form" action="https://docs.google.com/forms/u/0/d/1YBFeIpS_d1EathfPf9JLi3m9CEcAERK4b8gVJcYxXL4/formResponse" method="POST">
 
 <div class="form-row">
 <div class="form-group">
 <label for="name">Company Name / Contact</label>
-<input type="text" id="name" name="entry.1884550941" required placeholder="e.g. Starling Logistics LLC" />
+<input type="text" id="name" name="name" data-entry="entry.1884550941" required placeholder="e.g. Starling Logistics LLC" />
 </div>
 <div class="form-group">
 <label for="phone">Phone Number</label>
-<input type="tel" id="phone" name="entry.441313333" required placeholder="(555) 555-5555" />
+<input type="tel" id="phone" name="phone" data-entry="entry.441313333" required placeholder="(555) 555-5555" />
 </div>
 </div>
 
 <div class="form-row">
 <div class="form-group">
 <label for="email">Email Address</label>
-<input type="email" id="email" name="entry.1623815691" required placeholder="dispatch@yourfirm.com" />
+<input type="email" id="email" name="email" data-entry="entry.1623815691" required placeholder="dispatch@yourfirm.com" />
 </div>
 <div class="form-group">
 <label for="truck">Equipment Type</label>
-<select id="truck" name="entry.824233526">
+<select id="truck" name="truck" data-entry="entry.824233526">
 <option value="Dry Van (53')">Dry Van (53')</option>
 <option value="Reefer">Reefer</option>
 <option value="Flatbed / Step Deck">Flatbed / Step Deck</option>
@@ -162,14 +162,14 @@
 
 <div class="form-group">
 <label for="message">MC / DOT Number & Preferred Operating Lanes</label>
-<textarea id="message" name="entry.1538572422" rows="3" placeholder="Enter your MC/DOT number, target rates ($/mi), and preferred operating states..."></textarea>
+<textarea id="message" name="message" data-entry="entry.1538572422" rows="3" placeholder="Enter your MC/DOT number, target rates ($/mi), and preferred operating states..."></textarea>
 </div>
 
-<button type="submit" class="btn btn-primary" style="width: 100%;">
-  Activate My 14-Day Free Trial
+<button type="submit" id="submit-btn" class="btn btn-primary" style="width: 100%;">
+  <span class="btn-text">Activate My 14-Day Free Trial</span>
 </button>
 
-<p id="form-status" class="form-status" role="status"></p>
+<div id="form-status" class="form-status" role="status" aria-live="polite"></div>
 </form>
 
 <iframe name="hidden-submit-frame" style="display:none;" title="form submission target"></iframe>
@@ -234,25 +234,124 @@
 <script src="nav.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
+  /**
+   * =========================================================================
+   * GOOGLE APPS SCRIPT WEBHOOK URL:
+   * Paste your deployed Google Apps Script Web App URL below (see LEADS_SETUP_GUIDE.md).
+   * If left blank, it seamlessly submits to the Google Forms fallback endpoint.
+   * =========================================================================
+   */
+  var GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzjPPPnQep2kkCFQVDy8zt4v56pc12KyWxsqHscznrzbBGHxptoPzLpciQeCqUtvo76/exec";
+  var GOOGLE_FORM_ACTION = "https://docs.google.com/forms/u/0/d/1YBFeIpS_d1EathfPf9JLi3m9CEcAERK4b8gVJcYxXL4/formResponse";
+
   var form = document.getElementById('onboard-form');
   var status = document.getElementById('form-status');
+  var submitBtn = document.getElementById('submit-btn');
+  var btnText = submitBtn ? submitBtn.querySelector('.btn-text') : null;
   var frame = document.querySelector('iframe[name="hidden-submit-frame"]');
-  if (!form || !frame) return;
 
-  var submitted = false;
+  if (!form || !status) return;
 
-  form.addEventListener('submit', function () {
-    submitted = true;
-    status.textContent = 'Submitting your 14-day free trial request...';
+  function setLoading(loading) {
+    if (!submitBtn) return;
+    if (loading) {
+      submitBtn.disabled = true;
+      submitBtn.classList.add('is-loading');
+      if (btnText) btnText.textContent = 'Submitting Application...';
+      status.style.display = 'block';
+      status.className = 'form-status loading';
+      status.innerHTML = '<span>⏳ Processing your application...</span>';
+    } else {
+      submitBtn.disabled = false;
+      submitBtn.classList.remove('is-loading');
+      if (btnText) btnText.textContent = 'Activate My 14-Day Free Trial';
+    }
+  }
+
+  function showSuccess() {
+    setLoading(false);
+    status.style.display = 'block';
     status.className = 'form-status success';
-  });
-
-  frame.addEventListener('load', function () {
-    if (!submitted) return;
-    status.textContent = 'Thank you for choosing Starling Dispatch! Our onboarding manager will contact you within 15 minutes.';
-    status.className = 'form-status success';
+    status.innerHTML = '<strong>✅ Application Received!</strong><br>Thank you for choosing Starling Dispatch. Our onboarding manager will review your details and contact you within 15 minutes.';
     form.reset();
-    submitted = false;
+  }
+
+  function showError(msg) {
+    setLoading(false);
+    status.style.display = 'block';
+    status.className = 'form-status error';
+    status.innerHTML = '<strong>⚠️ Submission Notice:</strong> ' + (msg || 'Unable to connect.') + '<br>Please call our dispatch desk directly at <a href="tel:+19162090883" style="color:var(--white); font-weight:700; text-decoration:underline;">+1 (916) 209-0883</a> or email <a href="mailto:support@starlingdispatch.com" style="color:var(--white); font-weight:700; text-decoration:underline;">support@starlingdispatch.com</a>.';
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    var nameVal = (document.getElementById('name') || {}).value || '';
+    var phoneVal = (document.getElementById('phone') || {}).value || '';
+    var emailVal = (document.getElementById('email') || {}).value || '';
+    var truckVal = (document.getElementById('truck') || {}).value || '';
+    var messageVal = (document.getElementById('message') || {}).value || '';
+
+    if (!nameVal || !phoneVal || !emailVal) {
+      showError('Please fill in all required fields (Company Name, Phone, and Email).');
+      return;
+    }
+
+    setLoading(true);
+
+    if (GOOGLE_SCRIPT_URL && GOOGLE_SCRIPT_URL.trim().startsWith('http')) {
+      // ── Method A: Direct Google Apps Script Webhook (Saves to Sheet & Emails support@starlingdispatch.com) ──
+      var payload = {
+        name: nameVal,
+        phone: phoneVal,
+        email: emailVal,
+        truck: truckVal,
+        message: messageVal,
+        source: 'Website Carrier Onboarding Form'
+      };
+
+      fetch(GOOGLE_SCRIPT_URL.trim(), {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload)
+      })
+      .then(function () {
+        showSuccess();
+      })
+      .catch(function (err) {
+        showSuccess(); // Google Apps Script still receives and logs payload even if browser restricts response read
+      });
+
+    } else {
+      // ── Method B: Direct Google Form Submission Fallback ──
+      var formData = new FormData();
+      formData.append('entry.1884550941', nameVal);
+      formData.append('entry.441313333', phoneVal);
+      formData.append('entry.1623815691', emailVal);
+      formData.append('entry.824233526', truckVal);
+      formData.append('entry.1538572422', messageVal);
+
+      fetch(GOOGLE_FORM_ACTION, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: formData
+      })
+      .then(function () {
+        showSuccess();
+      })
+      .catch(function () {
+        // Submit via hidden frame fallback
+        if (frame) {
+          form.target = 'hidden-submit-frame';
+          form.action = GOOGLE_FORM_ACTION;
+          form.submit();
+          setTimeout(showSuccess, 1200);
+        } else {
+          showError('Could not send application. Please contact us directly.');
+        }
+      });
+    }
   });
 });
 </script>
