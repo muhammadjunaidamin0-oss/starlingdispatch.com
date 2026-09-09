@@ -1,0 +1,27 @@
+# OS files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+
+# Editor / IDE
+.idea/
+*.swp
+*.sublime-workspace
+
+# Logs & temp
+*.log
+*.tmp
+*~
+
+# Local environment / secrets
+.env
+.env.*
+!.env.example
+
+# Dependencies & build output (in case tooling is added later)
+node_modules/
+dist/
+build/
+.cache/

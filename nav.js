@@ -219,3 +219,125 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
 });
+
+/* ══════════════════════════════════════════════════════
+   COOKIE CONSENT BANNER — Legal Compliance v1.0
+   Remembers user choice via localStorage. No repeat popups.
+══════════════════════════════════════════════════════ */
+(function () {
+  var COOKIE_KEY = 'sd_cookie_consent';
+
+  // Inject banner styles
+  var style = document.createElement('style');
+  style.textContent = [
+    '#sd-cookie-banner {',
+    '  position: fixed;',
+    '  bottom: 0; left: 0; right: 0;',
+    '  z-index: 99998;',
+    '  background: rgba(7, 16, 32, 0.97);',
+    '  backdrop-filter: blur(20px);',
+    '  -webkit-backdrop-filter: blur(20px);',
+    '  border-top: 1px solid rgba(212,160,23,0.20);',
+    '  padding: 18px 24px;',
+    '  display: flex;',
+    '  align-items: center;',
+    '  justify-content: space-between;',
+    '  gap: 20px;',
+    '  flex-wrap: wrap;',
+    '  box-shadow: 0 -4px 40px rgba(0,0,0,0.50);',
+    '  transform: translateY(100%);',
+    '  transition: transform 0.45s cubic-bezier(0,0,0.2,1);',
+    '}',
+    '#sd-cookie-banner.visible { transform: translateY(0); }',
+    '#sd-cookie-banner-text {',
+    '  font-family: Outfit, system-ui, sans-serif;',
+    '  font-size: 13px;',
+    '  color: #C9D1DC;',
+    '  line-height: 1.6;',
+    '  flex: 1;',
+    '  min-width: 240px;',
+    '}',
+    '#sd-cookie-banner-text a {',
+    '  color: #F0C040;',
+    '  text-decoration: underline;',
+    '}',
+    '#sd-cookie-banner-actions {',
+    '  display: flex;',
+    '  gap: 10px;',
+    '  align-items: center;',
+    '  flex-shrink: 0;',
+    '}',
+    '#sd-cookie-accept, #sd-cookie-decline {',
+    '  font-family: Outfit, system-ui, sans-serif;',
+    '  font-size: 12px;',
+    '  font-weight: 700;',
+    '  letter-spacing: .06em;',
+    '  text-transform: uppercase;',
+    '  border-radius: 9999px;',
+    '  border: none;',
+    '  cursor: pointer;',
+    '  padding: 9px 20px;',
+    '  transition: all 0.2s ease;',
+    '}',
+    '#sd-cookie-accept {',
+    '  background: linear-gradient(135deg, #F0C040, #D4A017);',
+    '  color: #030B14;',
+    '}',
+    '#sd-cookie-accept:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(212,160,23,0.4); }',
+    '#sd-cookie-decline {',
+    '  background: transparent;',
+    '  color: #7A8FA6;',
+    '  border: 1px solid rgba(122,143,166,0.3);',
+    '}',
+    '#sd-cookie-decline:hover { color: #C9D1DC; border-color: rgba(201,209,220,0.4); }',
+    '@media (max-width: 480px) {',
+    '  #sd-cookie-banner { padding: 14px 16px; }',
+    '  #sd-cookie-banner-actions { width: 100%; justify-content: flex-end; }',
+    '}'
+  ].join('\n');
+  document.head.appendChild(style);
+
+  // Check if user already made a choice — if so, exit silently
+  if (localStorage.getItem(COOKIE_KEY)) return;
+
+  // Build banner HTML
+  var banner = document.createElement('div');
+  banner.id = 'sd-cookie-banner';
+  banner.setAttribute('role', 'dialog');
+  banner.setAttribute('aria-label', 'Cookie consent');
+  banner.innerHTML = [
+    '<div id="sd-cookie-banner-text">',
+    '  🍪 We use essential cookies to improve your experience on starlingdispatch.com. ',
+    '  By clicking <strong>Accept</strong>, you agree to our use of cookies as described in our ',
+    '  <a href="privacy-policy.html">Privacy Policy</a>.',
+    '</div>',
+    '<div id="sd-cookie-banner-actions">',
+    '  <button id="sd-cookie-decline" aria-label="Decline cookies">Decline</button>',
+    '  <button id="sd-cookie-accept" aria-label="Accept cookies">Accept</button>',
+    '</div>'
+  ].join('');
+
+  document.body.appendChild(banner);
+
+  // Trigger slide-in after paint
+  requestAnimationFrame(function () {
+    requestAnimationFrame(function () {
+      banner.classList.add('visible');
+    });
+  });
+
+  function dismissBanner(choice) {
+    localStorage.setItem(COOKIE_KEY, choice);
+    banner.classList.remove('visible');
+    setTimeout(function () {
+      if (banner.parentNode) banner.parentNode.removeChild(banner);
+    }, 500);
+  }
+
+  document.getElementById('sd-cookie-accept').addEventListener('click', function () {
+    dismissBanner('accepted');
+  });
+  document.getElementById('sd-cookie-decline').addEventListener('click', function () {
+    dismissBanner('declined');
+  });
+})();
