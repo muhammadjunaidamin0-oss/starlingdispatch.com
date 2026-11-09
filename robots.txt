@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+
+# Block access to development/config files
+Disallow: /launch.json
+Disallow: /.vscode/
+Disallow: /.gitignore
+Disallow: /.gitattributes
+Disallow: /google-apps-script.js
+Disallow: /LEADS_SETUP_GUIDE.md
+
+# Sitemap location
+Sitemap: https://starlingdispatch.com/sitemap.xml
+
+# Crawl delay (be polite to crawlers)
+Crawl-delay: 1

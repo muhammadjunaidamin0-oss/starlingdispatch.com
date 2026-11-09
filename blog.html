@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Trucking Dispatch Blog — Tips, Rates & Owner-Operator Guides | Starling Dispatch</title>
+<meta name="description" content="Free resources for owner-operators: how to maximize freight rates, avoid broker traps, reduce deadhead miles, and grow your trucking revenue with expert dispatch tips." />
+<meta name="theme-color" content="#030B14" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Starling Dispatch" />
+<meta property="og:title" content="Trucking Dispatch Blog — Tips, Rates & Owner-Operator Guides" />
+<meta property="og:description" content="Free resources for owner-operators: maximize freight rates, avoid broker traps, and grow trucking revenue." />
+<meta property="og:image" content="starling-dispatch-banner.svg" />
+<meta property="og:url" content="https://starlingdispatch.com/blog.html" />
+
+<!-- Blog Article Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "Starling Dispatch — Owner-Operator Resource Blog",
+  "description": "Expert freight dispatch tips, rate guides, and trucking business advice for owner-operators across the USA.",
+  "url": "https://starlingdispatch.com/blog.html",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Starling Dispatch",
+    "url": "https://starlingdispatch.com",
+    "telephone": "+1-916-209-0883"
+  }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 28px;
+  margin-top: 50px;
+}
+.blog-card {
+  background: var(--glass-bg);
+  border: var(--glass-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  backdrop-filter: var(--glass-blur);
+  transition: transform 0.3s var(--ease), box-shadow 0.3s ease, border-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+.blog-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.5);
+  border-color: rgba(212,160,23,0.3);
+}
+.blog-card-media {
+  width: 100%;
+  height: 190px;
+  background: radial-gradient(circle at center, rgba(212,160,23,0.12) 0%, rgba(3,11,20,0.65) 75%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  border-bottom: 1px solid rgba(212,160,23,0.12);
+  position: relative;
+  overflow: hidden;
+}
+.blog-truck-img {
+  max-height: 155px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 24px rgba(0,0,0,0.85));
+  transition: transform 0.35s ease;
+}
+.blog-card:hover .blog-truck-img {
+  transform: scale(1.06) translateY(-4px);
+}
+.blog-card-header {
+  padding: 24px 28px 0;
+}
+.blog-tag {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  margin-bottom: 14px;
+}
+.tag-rates    { background: rgba(212,160,23,0.15); color: var(--gold-light); border: 1px solid rgba(212,160,23,0.25); }
+.tag-business { background: rgba(0,200,150,0.12); color: var(--emerald);    border: 1px solid rgba(0,200,150,0.25); }
+.tag-strategy { background: rgba(99,102,241,0.12); color: #A5B4FC;           border: 1px solid rgba(99,102,241,0.25); }
+.blog-card-title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.25;
+  margin-bottom: 12px;
+  letter-spacing: -.01em;
+}
+.blog-card-excerpt {
+  font-size: 14px;
+  color: var(--gray-mid);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+.blog-card-body { padding: 0 28px 28px; flex: 1; display: flex; flex-direction: column; }
+.blog-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 11px;
+  color: var(--gray-dark);
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  margin-top: auto;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+.blog-card-meta span { display: flex; align-items: center; gap: 5px; }
+
+/* Article full-read accordion */
+.blog-article {
+  display: none;
+  padding: 36px 32px;
+  background: rgba(10,25,48,0.6);
+  border-top: 1px solid rgba(212,160,23,0.12);
+}
+.blog-article.open { display: block; }
+.blog-article h3 {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--gold-light);
+  margin: 28px 0 10px;
+}
+.blog-article h3:first-child { margin-top: 0; }
+.blog-article p { font-size: 14px; color: var(--gray-light); line-height: 1.8; margin-bottom: 14px; }
+.blog-article ul { padding-left: 18px; margin-bottom: 14px; }
+.blog-article ul li { font-size: 14px; color: var(--gray-light); line-height: 1.75; margin-bottom: 6px; list-style: disc; }
+.blog-article strong { color: var(--white); }
+.blog-article .article-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  color: var(--navy-deep);
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.blog-article .article-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(212,160,23,0.4); }
+.read-more-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  background: none;
+  border: 1px solid rgba(212,160,23,0.3);
+  border-radius: var(--radius-full);
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+  margin-top: 16px;
+  font-family: var(--font-body);
+}
+.read-more-btn:hover { background: var(--gold-subtle); border-color: var(--gold); }
+.read-more-btn .arrow { transition: transform 0.3s ease; display: inline-block; }
+.read-more-btn.open .arrow { transform: rotate(180deg); }
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header>
+<div class="container nav-wrap">
+<a href="index.html" class="logo">
+<img src="starling-dispatch-logo-dark.svg" alt="Starling Dispatch Logo" width="180" height="34" />
+</a>
+<nav>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="services.html">Services</a></li>
+<li><a href="pricing.html">Pricing</a></li>
+<li><a href="how-it-works.html">How It Works</a></li>
+<li><a href="faq.html">FAQ</a></li>
+<li><a href="blog.html" class="active">Blog</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+<div class="header-cta">
+<a href="contact.html" class="btn btn-primary" style="padding: 10px 20px; font-size: 11.5px; text-transform: uppercase;">Setup Carrier Profile in 5 Mins</a>
+</div>
+<button class="nav-toggle" aria-label="Open menu">☰</button>
+</div>
+</header>
+
+<!-- PAGE HERO -->
+<section class="page-hero" id="main-content">
+<div class="container page-hero-content">
+  <div class="breadcrumb"><a href="index.html">Home</a> / Resources &amp; Blog</div>
+  <span class="section-label">Owner-Operator Resources</span>
+  <h1>FREIGHT DISPATCH <span style="background:linear-gradient(135deg,#F0C040,#D4A017);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">INTEL</span></h1>
+  <p class="lead">Real-world guides to help owner-operators maximize per-mile rates, cut deadhead, and run a more profitable truck.</p>
+</div>
+</section>
+
+<!-- BLOG ARTICLES -->
+<section style="padding: 80px 0 100px; position:relative; overflow:hidden;">
+<div class="ambient-orb ambient-orb-1" style="top:5%; right:5%;"></div>
+<div class="ambient-orb ambient-orb-2" style="bottom:10%; left:5%;"></div>
+<div class="container" style="position:relative; z-index:1;">
+
+  <div class="blog-grid">
+
+    <!-- ARTICLE 1 -->
+    <div class="blog-card reveal">
+      <div class="blog-card-media">
+        <img src="dry-van.png" alt="Dry Van Freight Negotiation" class="blog-truck-img" loading="lazy" />
+      </div>
+      <div class="blog-card-header">
+        <span class="blog-tag tag-rates">Rates &amp; Negotiation</span>
+        <h2 class="blog-card-title">7 Proven Ways to Negotiate Higher Freight Rates as an Owner-Operator</h2>
+      </div>
+      <div class="blog-card-body">
+        <p class="blog-card-excerpt">Most brokers post loads below what the market will bear. Here's exactly how professional dispatchers push back — and win — on nearly every rate confirmation.</p>
+        <button class="read-more-btn" onclick="toggleArticle('article-1', this)">
+          Read Article <span class="arrow"><svg width="12" height="12" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg></span>
+        </button>
+        <div class="blog-card-meta">
+          <span><svg width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/></svg> November 2026</span>
+          <span><svg width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/><path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/></svg> 7 min read</span>
+        </div>
+      </div>
+      <div id="article-1" class="blog-article">
+        <h3>Why Brokers Almost Always Start Low</h3>
+        <p>Freight brokers operate on margin — the difference between what a shipper pays them and what they pay you. Their first offer is rarely their best. Industry data from DAT iQ shows that <strong>62% of negotiated loads result in a rate increase of $0.15–$0.45/mile</strong> when carriers push back confidently with market data.</p>
+
+        <h3>1. Never Accept the First Offer</h3>
+        <p>The golden rule. Always counter, even if the initial rate seems reasonable. A simple "My current market is showing $X/mile for this lane — can you get closer to that?" opens the door. You have nothing to lose.</p>
+
+        <h3>2. Use DAT iQ Lane Data as Leverage</h3>
+        <p>Log into DAT and pull the lane average for your specific city-pair. When you tell a broker "DAT iQ is showing $3.42/mile average for Charlotte to Allentown this week — your offer of $2.85 is well below market," they know you're informed. Brokers respect carriers who know their data.</p>
+
+        <h3>3. Time Your Negotiation Right</h3>
+        <p>Rate negotiating power peaks Thursday–Friday afternoon when brokers are scrambling to cover weekend loads. Drivers who pick up Friday evening or run weekends often command a 10–18% premium. Avoid negotiating Monday–Tuesday mornings when the market is flooded with available trucks.</p>
+
+        <h3>4. Highlight Your Equipment Advantages</h3>
+        <p>Do you have a team driver? Hazmat endorsement? Air-ride suspension? E-Track? Every advantage reduces risk for the broker and justifies a higher rate. Always mention relevant features before quoting your counter-rate.</p>
+
+        <h3>5. Stack Detention from the Start</h3>
+        <p>Get detention terms confirmed on every rate confirmation — in writing. Standard is $25–$50/hour after 2 free hours. Many carriers leave $100–$300 per load on the table by not negotiating detention upfront.</p>
+
+        <h3>6. Build Broker Relationships for Repeat Business</h3>
+        <p>The best rates come from brokers who trust you. Deliver clean, on-time, communicate proactively, and ask the broker to put you on their preferred carrier list. Relationship freight often pays 15–20% above spot market.</p>
+
+        <h3>7. Walk Away When It's Not Worth It</h3>
+        <p>Deadheading 200 miles for a cheap load destroys your revenue-per-day. Know your minimum acceptable rate and have the discipline to pass on loads that don't meet it. A dispatcher helps here — they maintain the volume needed to be selective.</p>
+
+        <a href="contact.html" class="article-cta">Get a Dispatcher Who Negotiates for You →</a>
+      </div>
+    </div>
+
+    <!-- ARTICLE 2 -->
+    <div class="blog-card reveal">
+      <div class="blog-card-media">
+        <img src="reefer.png" alt="Reefer Freight Factoring" class="blog-truck-img" loading="lazy" />
+      </div>
+      <div class="blog-card-header">
+        <span class="blog-tag tag-business">Business &amp; Cash Flow</span>
+        <h2 class="blog-card-title">How Freight Factoring Works — And Why Every Owner-Operator Needs It</h2>
+      </div>
+      <div class="blog-card-body">
+        <p class="blog-card-excerpt">Waiting 30–60 days for brokers to pay destroys cash flow. Factoring solves this overnight. Here's exactly how it works and what to look for in a factoring company.</p>
+        <button class="read-more-btn" onclick="toggleArticle('article-2', this)">
+          Read Article <span class="arrow"><svg width="12" height="12" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg></span>
+        </button>
+        <div class="blog-card-meta">
+          <span><svg width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/></svg> November 2026</span>
+          <span><svg width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/><path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/></svg> 6 min read</span>
+        </div>
+      </div>
+      <div id="article-2" class="blog-article">
+        <h3>The Cash Flow Problem Every Owner-Operator Faces</h3>
+        <p>You deliver a load on Monday. The broker has 30–60 days to pay. Meanwhile, you owe fuel this week, truck payment is due Friday, and insurance is auto-drafting next Tuesday. This cash flow gap is one of the leading causes of owner-operator business failure.</p>
+
+        <h3>What Is Freight Factoring?</h3>
+        <p>Factoring is when a third-party company (a "factor") buys your unpaid invoices at a small discount and pays you immediately — usually within 24 hours. You get cash now; they collect from the broker later.</p>
+
+        <h3>How the Numbers Work</h3>
+        <p>Say you have a $2,500 invoice. A factoring company charges 2–5% and advances you <strong>$2,375–$2,450 same day</strong> instead of waiting 45 days. For most owner-operators, that small fee is worth its weight in gold for peace of mind and business stability.</p>
+
+        <h3>Recourse vs. Non-Recourse Factoring</h3>
+        <ul>
+          <li><strong>Recourse factoring:</strong> If the broker doesn't pay, you owe the money back. Lower fees (1.5–2.5%).</li>
+          <li><strong>Non-recourse factoring:</strong> The factor takes the risk if the broker defaults. Higher fees (3–5%) but you're protected.</li>
+        </ul>
+        <p>For new owner-operators, non-recourse is often worth the extra cost until you know which brokers are reliable payers.</p>
+
+        <h3>What to Look for in a Factoring Company</h3>
+        <ul>
+          <li>No long-term contracts (month-to-month is ideal)</li>
+          <li>Same-day or next-day funding</li>
+          <li>Free credit checks on brokers</li>
+          <li>No minimum volume requirements</li>
+          <li>Transparent fee structure — no hidden charges</li>
+        </ul>
+
+        <h3>How Starling Dispatch Helps</h3>
+        <p>We handle same-day invoice submission to your factoring company after every delivery. We also help you vet factoring partners and coordinate document submission so you never miss a funding cycle. It's part of our standard service at no extra cost.</p>
+
+        <a href="contact.html" class="article-cta">Start Your Free Trial — Factoring Setup Included →</a>
+      </div>
+    </div>
+
+    <!-- ARTICLE 3 -->
+    <div class="blog-card reveal">
+      <div class="blog-card-media">
+        <img src="flatbed.png" alt="Flatbed Backhaul Route Planning" class="blog-truck-img" loading="lazy" />
+      </div>
+      <div class="blog-card-header">
+        <span class="blog-tag tag-strategy">Route Strategy</span>
+        <h2 class="blog-card-title">How to Cut Deadhead Miles in Half — The Backhaul Planning System Pros Use</h2>
+      </div>
+      <div class="blog-card-body">
+        <p class="blog-card-excerpt">Empty miles are profit killers. The best owner-operators run under 10% deadhead consistently. Here's the lane-pairing system that makes it possible.</p>
+        <button class="read-more-btn" onclick="toggleArticle('article-3', this)">
+          Read Article <span class="arrow"><svg width="12" height="12" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg></span>
+        </button>
+        <div class="blog-card-meta">
+          <span><svg width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/></svg> November 2026</span>
+          <span><svg width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/><path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/></svg> 8 min read</span>
+        </div>
+      </div>
+      <div id="article-3" class="blog-article">
+        <h3>What Is Deadhead and Why It Destroys Margins</h3>
+        <p>Deadhead miles are miles driven without a loaded trailer — going to pick up a load, repositioning, or returning home empty. At $0.65–$0.85/mile in operating costs (fuel, wear, time), <strong>every 100 deadhead miles costs you $65–$85 with zero revenue</strong>. Carriers running 20% deadhead are bleeding money.</p>
+
+        <h3>The Lane-Pairing Concept</h3>
+        <p>Instead of thinking in one-way loads, think in round-trip lane pairs. The best carriers identify 2–3 high-paying lane corridors where freight flows both directions, then build their operation around running those lanes continuously with minimal repositioning.</p>
+
+        <h3>Top Bidirectional Freight Corridors in the USA</h3>
+        <ul>
+          <li><strong>Southeast ↔ Midwest:</strong> Charlotte/Atlanta ↔ Chicago/Indianapolis — strong manufacturing and retail freight both ways</li>
+          <li><strong>Texas Triangle:</strong> Dallas ↔ Houston ↔ San Antonio — extremely dense freight, short deadhead</li>
+          <li><strong>Southeast ↔ Northeast:</strong> Atlanta ↔ Philadelphia/NJ — high-volume retail and produce lanes</li>
+          <li><strong>California ↔ Southwest:</strong> LA/Inland Empire ↔ Phoenix/Las Vegas — strong import freight westbound</li>
+        </ul>
+
+        <h3>The 50-Mile Deadhead Rule</h3>
+        <p>Professional dispatchers apply a simple filter: never accept a load that requires more than 50 miles of unpaid deadhead unless the rate-per-mile is high enough to compensate. At 50 miles deadhead, you're spending $35–$45 of your own money just to get to the load.</p>
+
+        <h3>How to Find Backhauls Before You Deliver</h3>
+        <p>The best time to book your next load is 4–6 hours before you deliver your current one. This keeps your options open and lets you negotiate from a position of "I need a load starting from X tomorrow morning" rather than "I'm sitting empty, please help." Dispatchers monitor load boards 24/7 and line up your next load before your wheels stop rolling.</p>
+
+        <h3>Use Layover Loads as a Last Resort</h3>
+        <p>Sometimes the market at your delivery location is thin. Rather than deadheading 150 miles to find freight, consider a layover load — a load that moves you closer to a high-freight hub, even at a slightly lower rate. Moving is always better than sitting.</p>
+
+        <h3>Track Your Deadhead Percentage Weekly</h3>
+        <p>Total deadhead miles ÷ total miles driven = deadhead percentage. Best-in-class carriers run 8–12%. If you're above 20%, your lane strategy needs work. A dedicated dispatcher monitors this metric and adjusts your lane plan accordingly.</p>
+
+        <a href="contact.html" class="article-cta">Let Us Plan Your Lanes — 14 Days Free →</a>
+      </div>
+    </div>
+
+  </div><!-- /.blog-grid -->
+
+  <!-- NEWSLETTER / CTA -->
+  <div class="reveal" style="max-width:640px; margin: 70px auto 0; text-align:center; padding: 48px 40px; background: var(--glass-bg); border: var(--glass-border); border-radius: var(--radius-xl); backdrop-filter: var(--glass-blur);">
+    <span class="section-label">More Articles Coming Soon</span>
+    <h3 style="font-family:var(--font-display); font-size:26px; font-weight:800; color:var(--white); margin-bottom:12px;">Want More Trucking Intel?</h3>
+    <p style="color:var(--gray-mid); font-size:14px; line-height:1.7; margin-bottom:28px;">We publish new rate guides, broker tips, and lane strategy articles every week. The best way to get them is to become a Starling Dispatch carrier — we share intel directly with our active drivers.</p>
+    <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+      <a href="contact.html" class="btn btn-primary">Start 14-Day Free Trial</a>
+      <a href="tel:+19162090883" class="btn btn-secondary">Call Our Team</a>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+<div class="container">
+<div class="footer-grid">
+<div>
+  <div class="footer-logo"><img src="starling-dispatch-logo-dark.svg" alt="Starling Dispatch" loading="lazy" width="180" height="34" /></div>
+  <p class="footer-brand-desc">Professional freight dispatching for owner-operators and carrier fleets across the continental United States. DAT iQ &amp; Truckstop certified.</p>
+</div>
+<div class="footer-col">
+  <h4>Resources</h4>
+  <ul>
+    <li><a href="blog.html">Dispatch Blog</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="how-it-works.html">How It Works</a></li>
+    <li><a href="referral.html">Referral Program</a></li>
+  </ul>
+</div>
+<div class="footer-col">
+  <h4>Company</h4>
+  <ul>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</div>
+<div class="footer-col">
+  <h4>Legal</h4>
+  <ul>
+    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+    <li><a href="terms-of-service.html">Terms of Service</a></li>
+    <li><a href="refund-policy.html">Refund Policy</a></li>
+  </ul>
+</div>
+<div class="footer-col">
+  <h4>Contact</h4>
+  <ul>
+    <li><a href="tel:+19162090883">+1 (916) 209-0883</a></li>
+    <li><a href="mailto:Support@starlingdispatch.com">Support@starlingdispatch.com</a></li>
+    <li><a href="contact.html">Carrier Application</a></li>
+    <li><a href="https://instagram.com/starling_dispatch" target="_blank">@starling_dispatch</a></li>
+  </ul>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2026 STARLINGDISPATCH.COM · ALL RIGHTS RESERVED</p>
+<p>PROFESSIONAL USA FREIGHT DISPATCHING SYSTEM</p>
+</div>
+</div>
+</footer>
+
+<div class="sticky-cta">
+  <div class="sticky-cta-text">🚛 <strong>Start Your 14-Day Free Trial</strong> <span class="hide-mobile">— No Setup Fee, No Contracts</span></div>
+  <div class="sticky-cta-actions">
+    <a href="tel:+19162090883" class="btn btn-ghost" style="padding:9px 14px; font-size:11px;">📞 Call Us</a>
+    <a href="contact.html" class="btn btn-primary" style="padding:9px 18px; font-size:11px;">Free Trial</a>
+    <button class="sticky-cta-close" aria-label="Dismiss">✕</button>
+  </div>
+</div>
+
+<script src="nav.js"></script>
+<script src="growth.js"></script>
+<script>
+function toggleArticle(id, btn) {
+  var article = document.getElementById(id);
+  if (!article) return;
+  var isOpen = article.classList.toggle('open');
+  btn.classList.toggle('open', isOpen);
+  btn.innerHTML = isOpen
+    ? 'Close Article <span class="arrow">▼</span>'
+    : 'Read Article <span class="arrow">▼</span>';
+  if (isOpen) {
+    setTimeout(function () {
+      article.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }, 100);
+  }
+}
+</script>
+</body>
+</html>

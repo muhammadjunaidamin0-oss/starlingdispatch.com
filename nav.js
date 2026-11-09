@@ -130,14 +130,15 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // ── 6. Calculator Engine (DAT + Truckstop) ──
+  // ── 6. Calculator Engine (DAT + Truckstop) — Updated This Week ──
   var spotMarketData = {
-    'dry-van':    { dat: 3.02, truckstop: 3.10, bestSource: 'Truckstop' },
-    'reefer':     { dat: 3.65, truckstop: 3.72, bestSource: 'Truckstop' },
-    'flatbed':    { dat: 3.92, truckstop: 3.85, bestSource: 'DAT iQ' },
-    'step-deck':  { dat: 4.00, truckstop: 4.10, bestSource: 'Truckstop' },
-    'power-only': { dat: 2.90, truckstop: 2.85, bestSource: 'DAT iQ' },
-    'box-truck':  { dat: 2.65, truckstop: 2.60, bestSource: 'DAT iQ' }
+    'dry-van':    { dat: 3.08, truckstop: 3.15, bestSource: 'Truckstop' },
+    'reefer':     { dat: 3.72, truckstop: 3.78, bestSource: 'Truckstop' },
+    'flatbed':    { dat: 3.96, truckstop: 3.90, bestSource: 'DAT iQ' },
+    'step-deck':  { dat: 4.05, truckstop: 4.18, bestSource: 'Truckstop' },
+    'power-only': { dat: 2.85, truckstop: 2.80, bestSource: 'DAT iQ' },
+    'box-truck':  { dat: 2.68, truckstop: 2.62, bestSource: 'DAT iQ' },
+    'hotshot':    { dat: 3.52, truckstop: 3.58, bestSource: 'Truckstop' }
   };
 
   var activeRateSource = 'highest';
